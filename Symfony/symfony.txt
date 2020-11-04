@@ -1,0 +1,38 @@
+http://symfony.com/doc/current/setup.html
+========================================================== SETUP & RUN
+
+composer create-project symfony/framework-standard-edition ProjectName
+
+cd \WebServers\xampp\htdocs\Symfony\
+
+php app\console server:run  				  // Run server
+
+http://localhost/Symfony/web/config.php    		  // Config
+
+========================================================== CREATE NEW Bundle
+
+php app/console generate:bundle				 // Create bundle
+[name]Bundle
+
+php app/console doctrine:database:create    		 // Create database
+
+php app/console generate:doctrine:entity Post.php
+
+php app/console generate:doctrine:entities ShopBundle    // Run ORM Mapping generates getters 
+							    and setters that don't exist 
+
+php app/console doctrine:schema:update --force		 // Create table via object [--dump sql]
+
+php app/console doctrine:schema:validate		 // Validate the mappings & db schema
+					
+php app/console generate:doctrine:crud			 //  GENERATE CRUD (create, read, update, delete)
+php app/console generate:doctrine:crud --overwrite	 //  Replace existing files. USe "routing.yml" to change route
+
+
+
+========================================================== DELETE Bundle
+
+1 delete /src/{Name}Bundle directory
+2 Unlink /app/config/routing.yml
+3 Clear bundle: /app/App.Kernel.php
+4 Clear cache: php app/console cache:clear

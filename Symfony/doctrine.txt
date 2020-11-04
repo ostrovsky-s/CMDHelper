@@ -1,0 +1,41 @@
+http://www.doctrine-project.org/
+http://symfony.com/doc/current/doctrine.html
+http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/basic-mapping.html#property-mapping
+http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/annotations-reference.html
+
+
+.. \htdocs\Symfony\app\config\parameters.yml    - DB PARAM
+
+HasLifecycleCallbacks - These are a set of annotations which allow 
+			you to take some action just before,
+			or just after an entity has been 
+			inserted, updated, or deleted from your system.
+
+
+Get doctrine manager ()
+$em = $this->getDoctrine()->getManager();
+$em->persist($post);
+$em->flush();					Save to DB
+
+
+/**
+ * @ORM\Entity(repositoryClass = "name")	// Add your own custom repository methods in repositoryClass
+ * @ORM\Table(name="_tblname")
+ * @ORM\HasLifecycleCallbacks
+ */
+
+Create primary id
+/**
+ * @ORM\Id()
+ * @ORM\Column(type="integer")				
+ * @ORM\GeneratedValue(strategy="AUTO")
+*/
+
+General type of columns
+/**
+ * @ORM\Column(type="string", length = 128)
+ * @ORM\Column(type="string", length = 255)
+ * @ORM\Column(type="text", nullable=true)
+ * @ORM\Column(type="datetime", nullable=true)
+ * @ORM\Column(type="boolean", nullable=true)
+*/

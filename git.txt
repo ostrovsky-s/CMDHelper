@@ -1,0 +1,58 @@
+git clone https://github.com/path.git  	 //Get repository
+================================================================================= Branch
+
+git branch				 // View branches
+git branch -r				 // View remote branches
+git checkout -b [name]                   // Create branch
+git checkout -b [name] origin/develop    // Track from develop
+git checkout [devolop]                   // Switch to branch
+git branch -d develop                    // Delete branch
+git push origin :branch_name             // Delete remote branch
+git branch -v                            // View last commit
+git branch --merged                      //
+git branch --no-merged                   //
+
+================================================================================= Config
+git config --list 					// View all set of config
+git config --list --show-origin				// Show path
+git config user.name     				// Get config param by key
+git config --global user.email "email@x.net"
+git config --global user.name "Name"
+================================================================================= 
+
+git command --help		    // Help about any command
+
+git add -A             		    // Add new sources for git
+git reset HEAD <filename>           // Reset file from stage area
+git checkout -- .                   // Discard all changes in working directory 
+git checkout <filename>		    // Discard changes in file
+git rm '*.txt			    // Removing file from git	
+git diff HEAD			    // Different from our last commit	
+git diff --staged	 	    // Option to see the changes you just staged
+git status  			    // Check status                                 
+git commit -am 'Descriptive text'   // Commit [a - 'all changed files'][m - 'message']
+git log 	                    // View commit log
+git log --graph			    // View graph
+git merge --no-ff develop           // Merge branch
+git clean -f -d			    // Remove untracked files
+git pull                            // Fetch from and integrate with another repository or a local branch
+git push                            // Save change on server
+
+================================================================================ Instructions for crating New Repository:
+
+1. git init 			    					   // Create an empty Git repository or reinitialize an existing one		
+2. git config --global user.email "email@x.net"
+   git config --global user.name "Name"				   	   // Set config
+3  git remote add [repname] https://github.com/path.git  		   // Add remote repository to the general list
+   git remote rm [repname] 				        	   // Remove remote repository
+   git remote -v  							   // View a list of remote repositories
+4. git pull hometasks master  						   // If remote rep is to null 
+5. git push -u hometasks master    					   // Upload in hometasks repository branch master(from local repository)
+
+//'-u' - The -u tells Git to remember the parameters,  
+   so that next time we can simply run git push and Git will know what to do  
+
+
+
+
+
