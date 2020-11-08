@@ -2,3 +2,6 @@
 sudo apt-get update && sudo apt-get dist-upgrade // Update system
 sudo apt-get autoclean                           // Remove .deb packages in caches
 sudo apt-get autoremove                          // Remove unused packages
+
+
+netstat -tvaep					 // Active network connections

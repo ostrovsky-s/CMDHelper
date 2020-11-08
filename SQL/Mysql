@@ -1,0 +1,91 @@
+=============================================================================== Create dumps
+Restore dump: mysql -u db_user -ppass -hlocalhost db_name < file.sql
+
+	mysql -u userName -p -hlocalhost dbname < dump.sql
+
+Create dump:
+	mysqldump -u userName -p -hlocalhost dbname > dump.sql
+
+	mysqldump -u... -p... mydb t1 t2 t3 > mydb_tables.sql
+
+------------------------------------------------------------------
+find -iname '*.sql'    // find sql dumps in subfolders
+=============================================================================== Connect MYSQL 
+mysql -h localhost -u root [h - host][u - user][p - query pass]
+\с - сancel command
+=============================================================================== Create user
+SELECT User, Host FROM mysql.user;
+
+CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'user_password';
+GRANT ALL PRIVILEGES ON database_name.* TO 'database_user'@'localhost';
+
+GRANT ALL PRIVILEGES ON database_name.table_name TO 'database_user'@'localhost'; // specify table;
+=============================================================================== Delete user
+SELECT User,Host FROM mysql.user;
+
+SHOW GRANTS FOR 'bloguser'@'localhost';
+REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'bloguser'@'localhost';
+SHOW GRANTS FOR 'bloguser'@'localhost';
+DROP USER 'bloguser'@'localhost';
+================================================================================ Rename table
+RENAME TABLE tb1 TO tb2;
+================================================================================ Encoding
+SHOW VARIABLES LIKE 'collation%';
+
+SELECT @@character_set_database, @@collation_database;
+
+SHOW TABLE STATUS FROM festi_framework; //Show the character set and the collation of your MySQL tables
+
+ALTER DATABASE databasename CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE tablename CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; 
+﻿=============================================================  CONSOLE MYSQL  mysql -u root -h localhost -p
+[h - host][u - user][p - query pass]
+\с - сancel command
+
+SHOW databases;			 
+SHOW tables;
+CREATE DB [dbname];
+DROP DB [dbname];
+USE [dbname]; 						 // Switch DB
+
+CREATE TABLE user(
+ => ID INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ => username varchar(25) NOT NULL UNIQUE KEy;  	
+ => password_hash varchar(255) NOT NULL,
+ => active BOOLEAN NOT NULL DEFAULT 0,
+ => email VARCHAR(255) NOT NULL,
+ => first_name VARCHAR(30),
+ => last_name VARCHAR(50),
+ => date_of_birth DATE,
+ => created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ => updated TIMEStAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)
+ =>;
+
+SHOW CREATE DATABASE ACADEMY\G
+SHOW CREATE TABLE USER\G
+SHOW CREATE TABLE user; 				// Show created table
+
+INSERT INTO 'user' (username,email) vales ('','','') () ()  
+INSERT IGNORE INTO TABLE				// Ignore dublicates
+UPDATE 'user' SET email = 'i.d@gmai.com WHERE id = 3;  
+SELECT * FROM user WHERE username = 'admin';
+DROP TABLE tablename;
+ALTER TABLE user ADD UNIQUE KEY 'login' (username)- 	// Update structure
+SHOW VARIAbLES LIKE
+========================================================================================  Check query performance 
+EXPLAIN SELECT * FROM user WHERE id = 3;
+DESC SELECT * FROM user WHERE id = 3;         DESC-(describe)
+
+DESCRIBE tblname;			// Retrive information from tabe
+SHOW Engines; 				// Show availabe table engine for data storage
+ALTER table 'tblname' add testrow varchar(50) default value;
+ALTER table 'tblname' change column  'testrow' 
+DESC query 
+SHOW INDEXES in tblname\g
+
+
+
+
+
+
+
