@@ -1,0 +1,18 @@
+nginx -s reload
+service nginx restart
+sudo systemctl start nginx 
+sudo systemctl stop nginx 
+sudo systemctl restart nginx
+
+sudo systemctl start httpd.service
+sudo systemctl stop httpd.service
+sudo systemctl reload httpd.service
+sudo systemctl enable httpd.service
+sudo systemctl disable httpd.service
+
+
+##  mariadb ##
+systemctl start mariadb
+systemctl stop mariadb
+systemctl restart mariadb
+

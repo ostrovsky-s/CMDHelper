@@ -1,0 +1,12 @@
+cat /etc/os-release
+curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+sudo yum install nodejs
+
+npm --version
+node --version
+
+npm init
+npm install
+npm run build
+
+netstat -tulnp

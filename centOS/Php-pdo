@@ -1,0 +1,17 @@
+php -i|grep PDO
+
+rpm -q centos-release
+
+// install pdo-drivers
+
+yum install php-pdo
+yum install php-mysql
+yum install php-sqlsrv
+
+
+Install phpunit
+wget https://phar.phpunit.de/phpunit.phar && chmod +x phpunit.phar && mv phpunit.phar /usr/local/bin/phpunit
+
+
+ps ax | grep 'php'
+

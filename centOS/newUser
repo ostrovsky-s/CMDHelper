@@ -1,0 +1,12 @@
+cat /etc/passwd
+
+adduser jack
+passwd jack
+
+usermod -d /home/admin/web/public jack
+usermod -a -G apache jack
+usermod -a -G admin jack
+
+
+
+groups jack
