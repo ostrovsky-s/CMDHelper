@@ -1,14 +1,14 @@
 https://beget.com/ru/articles/htaccess
 
-------------------------------------------------------------  Redirect queries to folder www 
+#------------------------------------------------------------  Redirect queries to folder www
 <IfModule mod_rewrite.c>
   RewriteEngine on
   RewriteRule ^$ www/ [L]
   RewriteRule (.*) www/$1 [L]
 </IfModule>
 
-------------------------------------------------------------  Display Cyrillic text
+#------------------------------------------------------------  Display Cyrillic text
 DefaultLanguage ru
 AddDefaultCharset windows-1251
 php_value default_charset "cp1251"
-------------------------------------------------------------
+#------------------------------------------------------------

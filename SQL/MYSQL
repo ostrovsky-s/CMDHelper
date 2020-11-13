@@ -19,7 +19,7 @@ SELECT User, Host FROM mysql.user;
 CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'user_password';
 GRANT ALL PRIVILEGES ON database_name.* TO 'database_user'@'localhost';
 
-GRANT ALL PRIVILEGES ON database_name.table_name TO 'database_user'@'localhost'; // specify table;
+GRANT ALL PRIVILEGES ON database_name.table_name TO 'database_user'@'localhost'; 		// specify table;
 =============================================================================== Delete user
 SELECT User,Host FROM mysql.user;
 
@@ -58,8 +58,7 @@ CREATE TABLE user(
  => last_name VARCHAR(50),
  => date_of_birth DATE,
  => created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
- => updated TIMEStAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)
- =>;
+ => updated TIMEStAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);
 
 SHOW CREATE DATABASE ACADEMY\G
 SHOW CREATE TABLE USER\G
