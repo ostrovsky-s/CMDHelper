@@ -1,6 +1,6 @@
 ===========================================================  FIND FILES IN CURRENT DIR
 find ./ -iname 'File.php'				// file mask 
-==========================================================  TEXT FIND IN FILES & REPLACE 
+===========================================================  TEXT FIND IN FILES & REPLACE
 
 grep -irnw '_hasCartSkinNameInRequest' *				// by whole word
 
@@ -9,12 +9,9 @@ grep -irnw _const *
 
 grep -l 'const' * plugin.php | xargs sed -i 's/\<const\>/linux/g'      	 //Replace whole word in file
 
-grep -rl 'target' * | xargs sed -i 's/\<target\>/replace/g'		  // Replace in all files whole word
-grep -rl 'target' * | xargs sed -i 's/target/replace/g'   		  // Replace stirngs and substrings in all files
-
+grep -rl 'target' * | xargs sed -i 's/\<target\>/replace/g'		         // Replace in all files whole word
+grep -rl 'target' * | xargs sed -i 's/target/replace/g'   		         // Replace strings and substrings in all files
 
 grep -rnw --exclude=*.{js,html,xml,css} 'tp-parallax-wrap' *
-
-
 
 find . -name myFile.txt

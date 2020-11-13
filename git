@@ -1,4 +1,4 @@
-git clone https://github.com/path.git  	 //Get repository
+git clone https://github.com/path.git  	 // Get repository
 ================================================================================= Branch
 
 git branch				 // View branches
@@ -13,88 +13,81 @@ git branch --merged                      //
 git branch --no-merged                   //
 
 ================================================================================= Config
-git config --list 					// View all set of config
-git config --list --show-origin				// Show path
-git config user.name     				// Get config param by key
+
+git config --list 					 // View all set of config
+git config --list --show-origin			         // Show path
+git config user.name     				 // Get config param by key
 
 git config --global user.email "email@x.net"
 git config --local user.email "email@x.net"
 
 git config --global user.name "Name"
 git config --local user.name "Name"
+
 ================================================================================= 
 
-git command --help		    // Help about any command
+git command --help		                // Help about any command
 
-git add -A             		    // Add new sources for git
-git reset HEAD <filename>           // Reset file from stage area
-git checkout -- .                   // Discard all changes in working directory 
-git checkout <filename>		    // Discard changes in file
-git rm '*.txt			    // Removing file from git	
-git diff HEAD			    // Different from our last commit	
-git diff --staged	 	    // Option to see the changes you just staged
-git status  			    // Check status                                 
-git commit -am 'Descriptive text'   // Commit [a - 'all changed files'][m - 'message']
-git log 	                    // View commit log
-git log --graph			    // View graph
-git merge --no-ff develop           // Merge branch
-git clean -f -d			    // Remove untracked files
-git pull                            // Fetch from and integrate with another repository or a local branch
-git push                            // Upload changes on server
+git add -A             		                // Add new sources for git
+git reset HEAD <filename>                       // Reset file from stage area
+git checkout -- .                               // Discard all changes in working directory
+git checkout <filename>		                // Discard changes in file
+git rm '*.txt			                // Removing file from git
+git diff HEAD			                // Different from our last commit
+git diff --staged	 	                // Option to see the changes you just staged
+git status  			                // Check status
+git commit -am 'Descriptive text'               // Commit [a - 'all changed files'][m - 'message']
+git log 	                                // View commit log
+git log --graph			                // View graph
+git merge --no-ff develop                       // Merge branch
+git clean -f -d			                // Remove untracked files
+git pull                                        // Fetch from and integrate with another repository or a local branch
+git push                                        // Upload changes on server
 
 ================================================================================ Instructions for crating New Repository:
 
-1. git init 			    			     // Create an empty Git repository or reinitialize an existing one		
+1. git init 			    			                     // Create an empty Git repository or reinitialize an existing one
 2. git config --global user.email "email@x.net"
-   git config --global user.name "Name"			     // Set config
-3  git remote add [repname] https://github.com/path.git      // Add remote repository to the general list
-   git remote rm [repname] 				     // Remove remote repository
-   git remote -v  					     // View a list of remote repositories
-4. git pull hometasks master  		                     // If remote rep is to null 
-5. git push -u hometasks master    		             // Upload in hometasks repository branch master(from local repository)
+   git config --global user.name "Name"			             	     // Set config
+3  git remote add [repname] https://github.com/path.git                      // Add remote repository to the general list
+   git remote rm [repname] 				                     // Remove remote repository
+   git remote -v  					                     // View a list of remote repositories
+4. git pull origin master  		                                     // If remote rep is to null
+5. git push -u origin master    		                             // Upload to origin repository branch master (from local repository)
 
-//'-u' - The -u tells Git to remember the parameters,  
+// '-u' - The -u tells Git to remember the parameters,
    so that next time we can simply run git push and Git will know what to do
 
--------------------------------------------------------------------------------------------------------- general
- git pull origin develop
- git submodule	   								// List of submodules
- git submodule init
- git submodule update
- git submodule update --init --recursive
- git checkout -b b_xxxx origin/develop
- git commit -am 'Descriptive text'
+-------------------------------------------------------------------------------------------------------- workflow
+git pull origin develop
+git submodule	   								// List of submodules
+git submodule init
+git submodule update
+git submodule update --init --recursive
+git checkout -b b_xxxx origin/develop
+git commit -am 'Descriptive text'
  
- git push origin branch
- git diff <file>
+git push origin branch
+git diff <file>
 
 Update remote branches
- git remote update origin --prune ------------------------------------------------------------------- conflict
- git push origin :heads/f_XXXX 		//delete remote branch
+git remote update origin --prune ---------------------------------------------------------------------- conflict
+git push origin :heads/f_XXXX 		            //delete remote branch
 
- git reset --hard commit_ID
- git reset --hard HEAD~1      		// delete 1 last commit  
- git push -f origin f_XXXX    		// compulsory commit
- git commit --amend -m "new commit"	// rename last commit
+git reset --hard commit_ID
+git reset --hard HEAD~1      		            // delete 1 last commit
+git push -f origin f_XXXX    		            // compulsory commit
+git commit --amend -m "new commit"	            // rename last commit
 -------------------------------------------------------------------------------------------------------- add submodule
+
 git submodule add https://github.com/path.git path/Directory
 
-git remote remove origin
-git remote add origin git@site.com:project.git
-
-git remote add origin git@site.com:project.git
+git remote remove origin                                                    // remove repository path
+git remote add origin git@site.com:project.git                              // add repository path
 
 git submodule add git@site.com:project.git wp-content/plugins/pluginName
 
-git submodule add git@site.com:project.git wp-content/plugins/pluginName
-
-git submodule add git@site.com:project.git wp-content/plugins/pluginName
 -------------------------------------------------------------------------------------------------------- remove submodule
-git submodule deinit -f -- libs/object
+git submodule deinit -f -- libs/object                                      // unlink submodule
 -------------------------------------------------------------------------------------------------------- make builds
 zip -9 -r --exclude=*.git* plugin.zip woocommerce-plugin/
-
-
-
-
-
