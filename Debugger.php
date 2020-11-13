@@ -1,0 +1,20 @@
+<?php
+define('WP_DEBUG', true);
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', false);
+//------------------------------------------------------------------------------------- WORDPRESS HOST
+$content = json_encode($_REQUEST).PHP_EOL;        
+$host = 'url.com';
+
+$path = ABSPATH.'/wp-content/custom.log';
+file_put_contents($path, $content, FILE_APPEND);
+//------------------------------------------------------------------------------------- Production DEBUG
+$object = null;
+
+if ($_SERVER['REMOTE_ADDR'] == 'ip-address') {
+    var_dump($object);
+}
+
+if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1') {
+   var_dump($object);
+}
