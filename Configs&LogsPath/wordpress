@@ -1,0 +1,25 @@
+# Deny remote access to admin-ajax.php
+<Files admin-ajax.php>
+Order allow,deny
+Allow from all
+Satisfy any
+</Files>
+
+# Deny download sql-dumps
+<Files ~ "(sql)$">
+Deny from all
+</Files>
+
+# Basic Auth
+AuthType Basic
+AuthName "Private zone. Only for administrator!"
+AuthUserFile /var/www/.htpasswd
+require valid-user
+
+php_value memory_limit 1024M
+php_value post_max_size 1024M
+php_value upload_max_filesize 1024M
+
+define('WP_DEBUG', true);
+define('WP_DEBUG_LOG', true);
+define('FS_METHOD', 'direct');

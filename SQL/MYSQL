@@ -48,17 +48,7 @@ CREATE DB [dbname];
 DROP DB [dbname];
 USE [dbname]; 						 // Switch DB
 
-CREATE TABLE user(
- => ID INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
- => username varchar(25) NOT NULL UNIQUE KEy;  	
- => password_hash varchar(255) NOT NULL,
- => active BOOLEAN NOT NULL DEFAULT 0,
- => email VARCHAR(255) NOT NULL,
- => first_name VARCHAR(30),
- => last_name VARCHAR(50),
- => date_of_birth DATE,
- => created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
- => updated TIMEStAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);
+
 
 SHOW CREATE DATABASE ACADEMY\G
 SHOW CREATE TABLE USER\G
@@ -81,6 +71,33 @@ ALTER table 'tblname' add testrow varchar(50) default value;
 ALTER table 'tblname' change column  'testrow' 
 DESC query 
 SHOW INDEXES in tblname\g
+
+---------------------------------------------------------------------------------------- tables examamples
+CREATE TABLE `payments` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_user` int(10) unsigned NOT NULL,
+  `amount` decimal(10,2) DEFAULT NULL,
+  `status` enum('pending','reject','error', 'cancel','new','in progress','expiress') NOT NULL DEFAULT 'new',
+  `paybox_ident` varchar(32) NOT NULL,
+  `description` varchar(128) DEFAULT NULL,
+  `transaction_code` varchar(255) DEFAULT NULL,
+   id_order` int(10) unsigned NOT NULL,
+  `remote_info` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE user(
+ => ID INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ => username varchar(25) NOT NULL UNIQUE KEy;  	
+ => password_hash varchar(255) NOT NULL,
+ => active BOOLEAN NOT NULL DEFAULT 0,
+ => email VARCHAR(255) NOT NULL,
+ => first_name VARCHAR(30),
+ => last_name VARCHAR(50),
+ => date_of_birth DATE,
+ => created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ => updated TIMEStAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);
+
 
 
 

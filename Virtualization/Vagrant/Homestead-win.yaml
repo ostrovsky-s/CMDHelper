@@ -1,0 +1,34 @@
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 2
+provider: virtualbox
+
+authorize: D:/LARAVELBOX/ssh/id_rsa.pub
+
+keys:
+    - D:/LARAVELBOX/ssh/id_rsa
+
+folders:
+    - map: D:/LARAVELBOX/main
+      to: /home/vagrant/code
+
+sites:
+    - map: laravelapp.test 
+      to: /home/vagrant/code/lara/public
+
+databases:
+    - homestead
+
+features:
+    - mysql: true
+    - mariadb: false
+    - ohmyzsh: false
+    - webdriver: false
+
+# ports:
+#     - send: 50000
+#       to: 5000
+#     - send: 7777
+#       to: 777
+#       protocol: udp

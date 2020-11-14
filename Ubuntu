@@ -4,4 +4,8 @@ sudo apt-get autoclean                           // Remove .deb packages in cach
 sudo apt-get autoremove                          // Remove unused packages
 
 
+
+tar -zcvf archive.tar.gz directory/
+
 netstat -tvaep					 // Active network connections
+
