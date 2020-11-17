@@ -1,0 +1,8 @@
+exit        // : -> q!
+
+
+-------------------------------------------------- word search
+press /
+type word which you want to search
+press Enter
+-------------------------------------------------- 

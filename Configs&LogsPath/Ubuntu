@@ -2,12 +2,10 @@ tail -f /var/log/syslog
 ============================================================================== MySQL
 /etc/mysql/
 
-vim /etc/mysql/mysql.conf.d/mysqld.cnf
-
+sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 --------------------------------------------------------- LOGS
 cd /var/log/mysql
-vim /var/log/mysql/error.log
-
+sudo  vim /var/log/mysql/error.log
 
 // query log
 tail -f /var/log/mysql/mysql.log
@@ -16,17 +14,18 @@ tail -f /var/log/mysql/mysql.log
 tail -f var/log/mysql/mysql-slow.log
 ============================================================================== APACHE & PHP
 cd /etc/apache2
-vim /etc/apache2/apache2.conf
+sudo vim /etc/apache2/apache2.conf
+sudo vim /etc/apache2/ports.conf		//vhosts
 
 // vhosts default
-vim /etc/apache2/sites-available/000-default.conf
+sudo vim /etc/apache2/sites-available/000-default.conf
 --------------------------------------------------------- LOGS
 cd /var/log/apache2/
 
-vim /var/log/apache2/access.log
-vim /var/log/apache2/error.log
-vim /var/log/apache2/other_vhosts_access.log
+sudo vim /var/log/apache2/access.log
+sudo vim /var/log/apache2/error.log
+sudo vim /var/log/apache2/other_vhosts_access.log
 ============================================================================== PHP
 cd /etc/php/
 
-vim /etc/php/7.4/apache2/php.ini
+sudo vim /etc/php/7.4/apache2/php.ini

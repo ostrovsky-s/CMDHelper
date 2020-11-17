@@ -1,0 +1,28 @@
+ - \xampp\apache\conf\httpd.conf			        // main config file
+
+
+- \xampp\apache\conf\extra\httpd-vhosts.conf			//virtual hosts 
+
+
+- \xampp\php\php.ini 						//php config
+
+
+- \xampp\mysql\bin						// MYSQLHOME
+
+
+- \xampp\php\logs\php_error_log					// error registration
+
+
+- \xampp\php\ext						// Dll directory
+
+
+- \xampp\php\PEAR						// PEAR
+
+
+[OPENSSL_CONF]
+- /xampp/apache/bin/openssl.cnf				
+
+[DOCUMENT_ROOT] 
+- /xampp/htdocs
+
+

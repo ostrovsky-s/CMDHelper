@@ -5,7 +5,15 @@ sudo apt-get autoremove                          // Remove unused packages
 
 
 
-tar -zcvf archive.tar.gz directory/
-
-netstat -tvaep					 // Active network connections
+tar -zcvf archive.tar.gz directory/		 // Unpack
+=============================================================================== Network
+sudo netstat -tvaep				 // Active network connections
+sudo netstat -anp | grep apache			 // listening apache port and PID from this if it's running
+sudo netstat -tulpn				 // Active Internet connections (only servers)	
+=============================================================================== Apache
+sudo service apache2 start
+sudo service apache2 stop
+sudo service apache2 restart
+===============================================================================
+	
 

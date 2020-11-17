@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "login" : "admin",
+        "name" : "Administrator",
+        "role" : "superuser",
+        "lastLoginData": "2017-02-10 19:25"
+    },
+    {
+        "id": 2,
+        "login" : "moder",
+        "name" : "Moderator",
+        "role" : "moderator",
+        "lastLoginData": "2017-02-10 19:21"
+    },
+    {
+        "id": 3,
+        "login" : "editor",
+        "name" : "Editor",
+        "role" : "editor",
+        "lastLoginData": "2017-02-10 19:22"
+    },
+    {
+        "id": 4,
+        "login" : "j.doe",
+        "name" : "John Doe",
+        "role" : "user",
+        "lastLoginData": "2017-02-10 19:25"
+    }
+]
