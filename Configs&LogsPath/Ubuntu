@@ -1,4 +1,6 @@
 tail -f /var/log/syslog
+
+sudo vim /etc/hosts
 ============================================================================== MySQL
 /etc/mysql/
 
