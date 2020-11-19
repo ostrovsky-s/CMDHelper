@@ -1,0 +1,15 @@
+# https://crontab.guru/
+
+sudo service cron start
+systemctl status cron
+
+crontab -l	 // Job lists
+
+
+crontab -r 	 // Remove current tasks
+
+
+crontab -e
+
+* * * * * /home/path/test.sh
+

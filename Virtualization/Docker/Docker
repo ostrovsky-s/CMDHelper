@@ -1,0 +1,21 @@
+sudo docker run
+sudo docker stop containerName
+sudo docker start containerName
+sudo docker pause containerName				// Pause container
+sudo docker unpause containerName			// Unpause container
+
+sudo docker ps	   					// Listing the running containers
+
+sudo docker logs docker-wp_db_1 			// show logs in docker-wp_db_1
+
+sudo docker exec -it docker-wp_db_1 bash 		// connect inside the container 
+	
+sudo docker search
+sudo docker pull
+sudo docker push
+
+----------------------------------------------------- Compose
+
+docker-compose up -d			// This runs docker-compose up in detached mode, pulls the needed Docker images
+
+sudo docker-compose down --volumes	// Shutdown and cleanup volumes

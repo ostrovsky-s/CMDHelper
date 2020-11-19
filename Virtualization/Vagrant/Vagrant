@@ -1,0 +1,9 @@
+vagrant halt  	// stop current machine
+
+vagrant box
+
+vagrant up	//start
+
+vagrant SSH	//cross ssh
+
+vagrant destroy //remove all WMs
