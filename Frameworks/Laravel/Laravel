@@ -1,0 +1,153 @@
+https://www.youtube.com/watch?v=i98TUvjQZyw
+
+
+app
+  - controllers 
+  - models
+  - providers
+
+bootstrap
+  -event and process handler
+
+resources
+   -views
+
+vendor
+  -composer (system files)
+
+
+php artisan list       // get all commands
+
+========================================================= Blade Templates
+blade.php   - require
+saas - css compiler
+
+@yield('content');   yield(this is mean fetch)
+@section('sidebar'); 
+@include();
+@csrf
+
+route is a global helper function!!!!!!!
+
+{{ route(booking.create)}}  // output var
+
+you can create own custom templates
+
+https://laravel.com/docs/5.0/templates!
+
+
+https://momentjs.com/
+https://www.layoutit.com/
+
+for compiling assets use mix minify js css 
+and chose different compillers like (less react ..)
+
+npm run dev    - for create compilling files
+npm run watch  - for observe files diff files assets
+
+npm run production  - to build all css js and minify them
+
+----------------------------------------------------------------------------------------
+Before ES6, template literals were called as template strings. 
+Unlike quotes in strings, template literals are enclosed by the backtick (` `) character 
+(key below the ESC key in QWERTY keyboard)
+----------------------------------------------------------------------------------------
+
+dropzone - for upload files
+========================================================= Forms
+
+========================================================= Models
+php artisan make:model Ticket   //params   -mr   m - add migraton, r - add resource controller
+
+php artisan make:model --factory Ticket  
+========================================================= Router
+
+
+========================================================= Controller
+// Each Controller relate to one table 
+
+php artisan make:controller PhotoController
+----------------------------------------------- Resource
+php artisan make:controller PhotoController --resource
+========================================================= Provider
+
+========================================================= Request
+// Classes for validate : ValidatesRequests, AuthorizesRequest
+
+$request->all()->dd();
+
+$request->validate()    // method for data validating
+
+php artisan meke:request StoreTeam
+========================================================= Exceptions
+
+========================================================= AUTH   // u should register policies in auth service providers class/ add in array
+php artisan:make auth			// create user authentication
+
+[session, web
+token, api
+email, custom ]
+========================================================= Policy (What user can do!)
+php artisan meke:policy SitePolicy --model:Category
+========================================================= Scope
+
+========================================================= Observer
+
+========================================================= Collections
+chunk(index) use in db query,
+first(); shufle();
+========================================================= Middlewhare
+
+php artisan meke:middlewhare Loggin
+
+to define new MiddleWhere in class Kernel.php
+========================================================= Eloquent ORM
+Books::paginate(1)   // 1 page
+
+booking->fill(request->input());
+booking->save();
+
+---------------------------------------------Soft-deleting 
+is deleting a record from but not from database!
+
+use SoftDeletes; 			//in model
+
+Booking::withTrashed();			//recover
+------------------------------------------------- One-to-one
+belongsTo() , hasOne()
+------------------------------------------------- One-to-many
+->hasMany()
+------------------------------------------------- Many-to-many
+->belongsToMany()
+
+
+attach()   -    save relationsship!
+========================================================= Migrations
+php artisan migrate    // run all migrations
+-------------------------------------------------- create own migration
+php artisan meke:migration create_hotel_tables
+
+add ->comments() to each row to explaing what does it mean
+id ->bigIncrement
+
+========================================================= MAIL
+if SMTP doesnt not configured u can change driver to [log] in env
+	
+mailtrap.io   /use for dev mail testing
+========================================================= Database: Seeding (наполнение данных)
+php artisan make:seeder UserSeeder
+
+php artisan db:seed    // run all
+
+Carbon - A simple PHP API extension for DateTime
+========================================================= Artisan tinker (query to the db)
+DB::listen(function (query) {var_dump(query->sql);} );
+========================================================= Composer
+Composer dump-autoload
+восстанавливает список всех классов, которые должны быть включены в проект (autoload_classmap.php).
+========================================================= ENV
+App::environment()
+
+========================================================= Dusk (Web Browser test)
+
+
