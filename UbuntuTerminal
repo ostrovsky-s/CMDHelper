@@ -1,10 +1,11 @@
-cat /etc/*-release				 // Get version
 ==============================================================================	General cmd
+cat /etc/*-release				 // Get version
+
 sudo apt-get update && sudo apt-get dist-upgrade // Update system
 sudo apt-get autoclean                           // Remove .deb packages in caches
 sudo apt-get autoremove                          // Remove unused packages
 
-
+su - www-data					 // su switch user
 
 tar -zcvf archive.tar.gz directory/		 // Unpack
 =============================================================================== Network
@@ -25,5 +26,4 @@ sudo service mysql restart
 sudo service mysql status
 ===============================================================================
 whereis git					// program paths
-du -hs /path/to/directory			// total folder size	
-
+du -hs /path/to/directory			// total folder size

@@ -1,0 +1,4 @@
+# Sample data
+php bin/magneto sampledata:deploy
+php bin/magento module:enable --all
+php bin/magento setup:upgrade

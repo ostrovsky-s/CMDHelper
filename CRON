@@ -13,3 +13,8 @@ crontab -e
 
 * * * * * /home/path/test.sh
 
+
+// Get all cron JOBS
+
+for user in $(cut -f1 -d: /etc/passwd); do crontab -u $user -l; done
+

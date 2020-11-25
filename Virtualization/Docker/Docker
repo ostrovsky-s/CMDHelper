@@ -1,21 +1,42 @@
-sudo docker run
+# Images located on https://hub.docker.com/
+----------------------------------------------------- Docker-engine
+sudo docker run 734a47c86379
+
 sudo docker stop containerName
 sudo docker start containerName
 sudo docker pause containerName				// Pause container
 sudo docker unpause containerName			// Unpause container
 
 sudo docker ps	   					// Listing the running containers
+			
+sudo docker container ls --all				// Show all containers
 
-sudo docker logs docker-wp_db_1 			// show logs in docker-wp_db_1
+sudo docker logs containerName 				// show logs in docker-wp_db_1
 
-sudo docker exec -it docker-wp_db_1 bash 		// connect inside the container 
+sudo docker exec -it containerName bash 		// connect inside the container 
+
+
+sudo docker image ls		        		// Docker images list
 	
 sudo docker search
-sudo docker pull
+sudo docker pull	containerName			
 sudo docker push
+
+sudo docker system prune   			       	WARNING! This will remove:
+        							- all stopped containers
+        							- all networks not used by at least one container
+        							- all dangling images
+        							- all build cache
+
+sudo docker image prune -a					// remove all images
 
 ----------------------------------------------------- Compose
 
-docker-compose up -d			// This runs docker-compose up in detached mode, pulls the needed Docker images
+sudo docker-compose up -d			       // This runs docker-compose up in detached mode, pulls the needed Docker images
 
-sudo docker-compose down --volumes	// Shutdown and cleanup volumes
+
+sudo docker-compose down			       // Remove images
+sudo docker-compose down --volumes	               // Shutdown and cleanup volumes
+
+
+

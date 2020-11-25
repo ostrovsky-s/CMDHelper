@@ -72,6 +72,7 @@ ALTER table 'tblname' change column  'testrow'
 DESC query 
 SHOW INDEXES in tblname\g
 
+SHOW PROCESSLIST;  			
 ---------------------------------------------------------------------------------------- tables examamples
 CREATE TABLE `payments` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
