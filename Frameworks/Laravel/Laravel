@@ -1,6 +1,3 @@
-https://www.youtube.com/watch?v=i98TUvjQZyw
-
-
 app
   - controllers 
   - models
@@ -14,22 +11,29 @@ resources
 
 vendor
   -composer (system files)
+---------------------------------------------------------
+php artisan --version       // Laravel version
 
+php artisan list            // Get all commands
 
-php artisan list       // get all commands
+php artisan help migrate    // Get help
 
+php artisan up
+php artisan down       	    // Maintenance mode
+
+php artisan config:cache    // Clear config cache
 ========================================================= Blade Templates
 blade.php   - require
 saas - css compiler
 
-@yield('content');   yield(this is mean fetch)
+@yield('content');  		// This is mean fetch
 @section('sidebar'); 
 @include();
 @csrf
 
-route is a global helper function!!!!!!!
+$errors in any template exist
 
-{{ route(booking.create)}}  // output var
+{{ route(booking.create)}}  // output var, route is a global helper function!
 
 you can create own custom templates
 
@@ -57,32 +61,41 @@ dropzone - for upload files
 ========================================================= Forms
 
 ========================================================= Models
-php artisan make:model Ticket   //params   -mr   m - add migraton, r - add resource controller
+https://laravel.com/docs/6.x/eloquent#defining-models
+php artisan make:model Ticket   	// Use params   -mr   m - add migraton, r - add resource controller
 
 php artisan make:model --factory Ticket  
-========================================================= Router
 
-
+$table = 'to assing table name';
+========================================================= Route
+php artisan route:cache
+php artisan route:clear
 ========================================================= Controller
 // Each Controller relate to one table 
 
-php artisan make:controller PhotoController
------------------------------------------------ Resource
-php artisan make:controller PhotoController --resource
+php artisan make:controller PhotoController		// Empty class
+
+php artisan make:controller PhotoController --resource  
 ========================================================= Provider
 
 ========================================================= Request
 // Classes for validate : ValidatesRequests, AuthorizesRequest
 
+Route->name('contact-form');		// Named-follow route
+
+Request::all();				// All request info
+
 $request->all()->dd();
 
-$request->validate()    // method for data validating
+$request->validate()    		// Method for data validating
 
-php artisan meke:request StoreTeam
+php artisan meke:request Contact        // Add handle outside controller      
 ========================================================= Exceptions
 
-========================================================= AUTH   // u should register policies in auth service providers class/ add in array
-php artisan:make auth			// create user authentication
+========================================================= AUTH   
+// U should register policies in auth service providers class/ add in array
+
+php artisan:make auth					// Create user authentication
 
 [session, web
 token, api
@@ -95,17 +108,31 @@ php artisan meke:policy SitePolicy --model:Category
 
 ========================================================= Collections
 chunk(index) use in db query,
-first(); shufle();
+first(); 
+shufle();
 ========================================================= Middlewhare
-
 php artisan meke:middlewhare Loggin
 
 to define new MiddleWhere in class Kernel.php
 ========================================================= Eloquent ORM
-Books::paginate(1)   // 1 page
+Books::paginate(1)   				// 1 page count
+
+find() in orm to get some element
 
 booking->fill(request->input());
 booking->save();
+
+
+------------------------------------------------- One-to-one
+belongsTo() , hasOne()
+------------------------------------------------- One-to-many
+->hasMany()
+------------------------------------------------- Many-to-many
+->belongsToMany()
+php artisan make:migration CreateArticleUserTable --create=article_user
+
+
+attach()   -    save relationsship!
 
 ---------------------------------------------Soft-deleting 
 is deleting a record from but not from database!
@@ -113,41 +140,46 @@ is deleting a record from but not from database!
 use SoftDeletes; 			//in model
 
 Booking::withTrashed();			//recover
-------------------------------------------------- One-to-one
-belongsTo() , hasOne()
-------------------------------------------------- One-to-many
-->hasMany()
-------------------------------------------------- Many-to-many
-->belongsToMany()
-
-
-attach()   -    save relationsship!
 ========================================================= Migrations
-php artisan migrate    // run all migrations
--------------------------------------------------- create own migration
-php artisan meke:migration create_hotel_tables
+https://laravel.com/docs/6.x/migrations#generating-migrations
 
-add ->comments() to each row to explaing what does it mean
-id ->bigIncrement
+php artisan migrate    					// Run all migrations
 
+php artisan migrate:reset				// Rollback all migration
+
+php artisan migrate:refresh				// Rollback and start all
+
+php artisan migrate:rollback --step=1   		// 1 migration back down
+
+php artisan schema:dump					// Squash migration to one file
+php artisan schema:dump --prune				// Dump & remove all migrations
+ 
+php artisan meke:migration create_hotel_tables 		// Create own migration
+
+add->comments()  					// To each row to explaing what does it mean
+
+// Append new column
+php artisan make:migration add_votes_to_article_table --table=articles   
 ========================================================= MAIL
 if SMTP doesnt not configured u can change driver to [log] in env
 	
-mailtrap.io   /use for dev mail testing
-========================================================= Database: Seeding (наполнение данных)
+mailtrap.io   						// Use for dev mail testing
+========================================================= Database Seeding
 php artisan make:seeder UserSeeder
 
-php artisan db:seed    // run all
-
-Carbon - A simple PHP API extension for DateTime
+php artisan db:seed    					// Run all seeds 
 ========================================================= Artisan tinker (query to the db)
 DB::listen(function (query) {var_dump(query->sql);} );
 ========================================================= Composer
 Composer dump-autoload
 восстанавливает список всех классов, которые должны быть включены в проект (autoload_classmap.php).
 ========================================================= ENV
-App::environment()
-
+App::environment()				   	   // get environment
 ========================================================= Dusk (Web Browser test)
+Carbon - A simple PHP API extension for DateTime
+
+------------- Unit test
+
+php artisan test
 
 
