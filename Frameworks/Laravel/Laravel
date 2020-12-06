@@ -11,24 +11,25 @@ resources
 
 vendor
   -composer (system files)
----------------------------------------------------------
-php artisan --version       // Laravel version
+--------------------------------------------------------- Main
+php artisan --version       				 // Laravel version
 
-php artisan list            // Get all commands
+php artisan list            				 // Get all commands
 
-php artisan help migrate    // Get help
+php artisan help migrate    				 // Get help
 
 php artisan up
-php artisan down       	    // Maintenance mode
+php artisan down       	    				 // Maintenance mode
 
-php artisan config:cache    // Clear config cache
-========================================================= Blade Templates
+php artisan config:cache    				 // Clear config cache
+========================================================= Blade Templates & assets
 blade.php   - require
 saas - css compiler
 
-@yield('content');  		// This is mean fetch
+@yield('content');  					 // This is fetch value
 @section('sidebar'); 
 @include();
+
 @csrf
 
 $errors in any template exist
@@ -39,18 +40,30 @@ you can create own custom templates
 
 https://laravel.com/docs/5.0/templates!
 
-
 https://momentjs.com/
 https://www.layoutit.com/
 
 for compiling assets use mix minify js css 
 and chose different compillers like (less react ..)
 
-npm run dev    - for create compilling files
-npm run watch  - for observe files diff files assets
+npm install jquery					 // Add jQuery
+npm install jquery-ui --save-dev	
 
-npm run production  - to build all css js and minify them
+							 // Add in bootstrap.js 
+window.$ = window.jQuery = require('jquery');
+window.$ = require('jquery-ui');
 
+console.log(jQuery().jquery);	
+
+The --save-dev option save only for dev pack
+
+npm run dev   				    		 // Create compilling files
+npm run watch  						 // Webpack will automatically recompile your 
+							    assets when it detects a change
+
+npm run production  					 // To build all css js and minify them
+
+npm ls --depth=0
 ----------------------------------------------------------------------------------------
 Before ES6, template literals were called as template strings. 
 Unlike quotes in strings, template literals are enclosed by the backtick (` `) character 
@@ -70,26 +83,35 @@ $table = 'to assing table name';
 ========================================================= Route
 php artisan route:cache
 php artisan route:clear
+
+Route::resources([
+    'photos' => PhotoController::class,
+    'posts' => PostController::class,
+]);
+
+Route::get('/test', [ArticleController::class, 'show']);
 ========================================================= Controller
 // Each Controller relate to one table 
 
-php artisan make:controller PhotoController		// Empty class
+php artisan make:controller ArticleController		// Empty class
 
-php artisan make:controller PhotoController --resource  
+php artisan make:controller ArticleController --resource  // Typical CRUD
+
+php artisan make:controller ArticleController --invokable // With single action 
 ========================================================= Provider
 
 ========================================================= Request
 // Classes for validate : ValidatesRequests, AuthorizesRequest
 
-Route->name('contact-form');		// Named-follow route
+Route->name('contact-form');				 // Named-follow route
 
-Request::all();				// All request info
+Request::all();						 // All request info
 
 $request->all()->dd();
 
-$request->validate()    		// Method for data validating
+$request->validate()    				 // Method for data validating
 
-php artisan meke:request Contact        // Add handle outside controller      
+php artisan meke:request Contact        		 // Add handle outside controller      
 ========================================================= Exceptions
 
 ========================================================= AUTH   
@@ -115,33 +137,33 @@ php artisan meke:middlewhare Loggin
 
 to define new MiddleWhere in class Kernel.php
 ========================================================= Eloquent ORM
-Books::paginate(1)   				// 1 page count
+https://laravel.com/docs/8.x/eloquent-relationships
 
-find() in orm to get some element
+Books::paginate(1)   				// 1 page count
 
 booking->fill(request->input());
 booking->save();
-
-
 ------------------------------------------------- One-to-one
-belongsTo() , hasOne()
+hasOne() ->    <-belongsTo(), FK    User <-> Phone
 ------------------------------------------------- One-to-many
-->hasMany()
+hasMany()->	<-belongsTo()       Blog <-> Comments
 ------------------------------------------------- Many-to-many
-->belongsToMany()
+belongsToMany()-> <-belongsToMany()   User <-> Roles
+
 php artisan make:migration CreateArticleUserTable --create=article_user
 
+$user->articles()->detach();
+$user->articles()->save($article);		  // Save into 2 tables articles and relations
 
-attach()   -    save relationsship!
-
+$user->articles()->attach(11);			  // Add relation in intermediate table
 ---------------------------------------------Soft-deleting 
 is deleting a record from but not from database!
 
-use SoftDeletes; 			//in model
+use SoftDeletes; 			     // Add in model
 
-Booking::withTrashed();			//recover
+Booking::withTrashed();			     // Recover
 ========================================================= Migrations
-https://laravel.com/docs/6.x/migrations#generating-migrations
+https://laravel.com/docs/8.x/migrations#generating-migrations
 
 php artisan migrate    					// Run all migrations
 
@@ -155,6 +177,8 @@ php artisan schema:dump					// Squash migration to one file
 php artisan schema:dump --prune				// Dump & remove all migrations
  
 php artisan meke:migration create_hotel_tables 		// Create own migration
+
+php artisan make:migration CreateArticleUserTable --create=article_user	// Intermediate table
 
 add->comments()  					// To each row to explaing what does it mean
 
