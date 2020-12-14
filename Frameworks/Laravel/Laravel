@@ -22,6 +22,8 @@ php artisan up
 php artisan down       	    				 // Maintenance mode
 
 php artisan config:cache    				 // Clear config cache
+
+php artisan serve					 // Start laravel local server 
 ========================================================= Blade Templates & assets
 blade.php   - require
 saas - css compiler
@@ -75,7 +77,7 @@ dropzone - for upload files
 
 ========================================================= Models
 https://laravel.com/docs/6.x/eloquent#defining-models
-php artisan make:model Ticket   	// Use params   -mr   m - add migraton, r - add resource controller
+php artisan make:model Ticket   			 // Use params   -mr   m - add migraton, r - add resource controller
 
 php artisan make:model --factory Ticket  
 
@@ -93,13 +95,13 @@ Route::get('/test', [ArticleController::class, 'show']);
 ========================================================= Controller
 // Each Controller relate to one table 
 
-php artisan make:controller ArticleController		// Empty class
+php artisan make:controller ArticleController		  // Empty class
 
 php artisan make:controller ArticleController --resource  // Typical CRUD
 
 php artisan make:controller ArticleController --invokable // With single action 
 ========================================================= Provider
-
+php artisan make:provider EnvatoCustomServiceProvider
 ========================================================= Request
 // Classes for validate : ValidatesRequests, AuthorizesRequest
 
@@ -139,7 +141,7 @@ to define new MiddleWhere in class Kernel.php
 ========================================================= Eloquent ORM
 https://laravel.com/docs/8.x/eloquent-relationships
 
-Books::paginate(1)   				// 1 page count
+Books::paginate(1)   					// 1 page count
 
 booking->fill(request->input());
 booking->save();
@@ -153,9 +155,9 @@ belongsToMany()-> <-belongsToMany()   User <-> Roles
 php artisan make:migration CreateArticleUserTable --create=article_user
 
 $user->articles()->detach();
-$user->articles()->save($article);		  // Save into 2 tables articles and relations
+$user->articles()->save($article);		        // Save into 2 tables articles and relations
 
-$user->articles()->attach(11);			  // Add relation in intermediate table
+$user->articles()->attach(11);			  	// Add relation in intermediate table
 ---------------------------------------------Soft-deleting 
 is deleting a record from but not from database!
 
@@ -195,15 +197,23 @@ php artisan db:seed    					// Run all seeds
 ========================================================= Artisan tinker (query to the db)
 DB::listen(function (query) {var_dump(query->sql);} );
 ========================================================= Composer
-Composer dump-autoload
-восстанавливает список всех классов, которые должны быть включены в проект (autoload_classmap.php).
+Composer dump-autoload					// Recover list classes autoload_classmap.php
 ========================================================= ENV
-App::environment()				   	   // get environment
+App::environment()				   	// get environment
 ========================================================= Dusk (Web Browser test)
-Carbon - A simple PHP API extension for DateTime
-
-------------- Unit test
-
 php artisan test
+========================================================= Queue
+php artisan queue:table					// Generate table
 
+php artisan make:job GenerateReport
+
+php artisan queue:work --once
+php artisan queue:work					// Start
+php artisan queue:listen				// Ensures that a new instance of the app is created for every job, no need to restart
+php artisan queue:restart				// Restart when new code
+php artisan queue:failed			        // Get filed jobs
+php artisan queue:flush					// Delete all failed jobs
+========================================================= Scheduller
+php artisan schedule:run
+=========================================================
 
