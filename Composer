@@ -1,0 +1,5 @@
+composer list						// List of all commands
+
+
+composer require vendor/package				// Add package into file
+composer install --no-dev				// 

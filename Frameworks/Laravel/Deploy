@@ -1,0 +1,10 @@
+sudo -S service php7.4-fpm reload
+php artisan down
+git pull origin master
+composer install 
+php artisan key:generate
+php artisan migrate
+php artisan db:seed
+php artisan cache:clear
+php artisan queue:restart
+php artisan up
