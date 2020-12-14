@@ -1,5 +1,32 @@
+composer --version
+
 composer list						// List of all commands
 
+composer search "packegeName"			
 
-composer require vendor/package				// Add package into file
-composer install --no-dev				// 
+composer init						// Create basic composer.json
+composer show						// List of all packages
+composer remove						// Remove package
+
+composer run-script					// Manual run	
+
+composer require vendor/package				// Add package into composer.json & update lock
+composer install --no-dev				// Exclude dev dependencies
+composer install					// If no composer.lock resolve composer.json then generate compser.lock
+
+composer update						// Update dependencies to latest version & update composer.json
+composer update --lock					// Update dependencies only lock file without installation
+
+composer self-update					// Upgrade composer core
+
+composer dump-autoload --optimize			// Update autoloader for production mode
+
+composer status --verbose				// Check if packages was modified
+composer validate					// Check composer.json integrity
+
+
+composer clear-cache		
+
+composer diagnose					// Automatic check issues 
+
+composer licenses					// Package licenses info
