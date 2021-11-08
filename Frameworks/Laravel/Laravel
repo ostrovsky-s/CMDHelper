@@ -12,32 +12,40 @@ resources
 vendor
   -composer (system files)
 --------------------------------------------------------- Main
-php artisan --version       				 // Laravel version
+php artisan --version                                                  // Laravel version
 
-php artisan list            				 // Get all commands
+php artisan list                                                       // Get all commands
 
-php artisan help migrate    				 // Get help
+php artisan help migrate                                               // Get help
 
 php artisan up
-php artisan down       	    				 // Maintenance mode
+php artisan down                                                       // Maintenance mode
 
-php artisan serve					 // Start laravel local server 
+php artisan serve                                                      // Start laravel local server 
 
-php artisan key:generate				 // Generete new key
+php artisan key:generate                                               // Generete new key
+
+php artisan dump-server                                                // Dump server
+
+php artisan ide-helper:generate                                        // Update helper
 ========================================================= Cache
-php artisan config:cache    				 // Clear config cache
+php artisan optimize                                                   // Optimize cache configs
+
+php artisan config:cache                                               // Clear config cache
 php artisan config:clear 
 
-php artisan view:cache					 // Compile views
+php artisan cache:clear                                                // App cache
+
+php artisan view:cache                                                 // Compile views
 php artisan view:clear
 
-php artisan route:cache					 // Add route cahce
+php artisan route:cache                                                // Add route cahce
 php artisan route:clear
 ========================================================= Blade Templates & assets
 blade.php   - require
 saas - css compiler
 
-@yield('content');  					 // This is fetch value
+@yield('content');                                                     // This is fetch value
 @section('sidebar'); 
 @include();
 
@@ -57,10 +65,10 @@ https://www.layoutit.com/
 for compiling assets use mix minify js css 
 and chose different compillers like (less react ..)
 
-npm install jquery					 // Add jQuery
+npm install jquery                                                       // Add jQuery
 npm install jquery-ui --save-dev	
 
-							 // Add in bootstrap.js 
+							                 // Add in bootstrap.js 
 window.$ = window.jQuery = require('jquery');
 window.$ = require('jquery-ui');
 
@@ -68,16 +76,16 @@ console.log(jQuery().jquery);
 
 The --save-dev option save only for dev pack
 
-npm run dev   				    		 // Create compilling files
-npm run watch  						 // Webpack will automatically recompile your 
-							    assets when it detects a change
+npm run dev                                                              // Create compilling files
+npm run watch                                                            // Webpack will automatically recompile your assets when it detects a change
 
-npm run production  					 // To build all css js and minify them
+npm run production                                                       // To build all css js and minify them
 
 npm ls --depth=0
 ----------------------------------------------------------------------------------------
 Before ES6, template literals were called as template strings. 
-Unlike quotes in strings, template literals are enclosed by the backtick (` `) character 
+Unlike quotes in strings, template literals are enclosed 
+by the backtick (` `) character 
 (key below the ESC key in QWERTY keyboard)
 ----------------------------------------------------------------------------------------
 
@@ -86,12 +94,14 @@ dropzone - for upload files
 
 ========================================================= Models
 https://laravel.com/docs/6.x/eloquent#defining-models
-php artisan make:model Ticket   			 // Use params   -mr   m - add migraton, r - add resource controller
+php artisan make:model Ticket                                            // Use params   -mr   m - add migraton, r - add resource controller
 
 php artisan make:model --factory Ticket  
 
 $table = 'to assing table name';
 ========================================================= Route
+php artisan route:list
+
 Route::resources([
     'photos' => PhotoController::class,
     'posts' => PostController::class,
@@ -101,35 +111,33 @@ Route::get('/test', [ArticleController::class, 'show']);
 ========================================================= Controller
 // Each Controller relate to one table 
 
-php artisan make:controller ArticleController		  // Empty class
+php artisan make:controller ArticleController                             // Empty class
 
-php artisan make:controller ArticleController --resource  // Typical CRUD
+php artisan make:controller ArticleController --resource                  // Typical CRUD
 
-php artisan make:controller ArticleController --invokable // With single action 
+php artisan make:controller ArticleController --invokable                 // With single action 
+
+php artisan make:controller TaskController --plain                        // Empty controller
 ========================================================= Provider
 php artisan make:provider EnvatoCustomServiceProvider
 ========================================================= Request
 // Classes for validate : ValidatesRequests, AuthorizesRequest
 
-Route->name('contact-form');				 // Named-follow route
+Route->name('contact-form');                                              // Named-follow route
 
-Request::all();						 // All request info
+Request::all();                                                           // All request info
 
 $request->all()->dd();
 
-$request->validate()    				 // Method for data validating
+$request->validate()                                                      // Method for data validating
 
-php artisan meke:request Contact        		 // Add handle outside controller      
+php artisan make:request Contact                                          // Add handle outside controller      
 ========================================================= Exceptions
 
 ========================================================= AUTH   
-// U should register policies in auth service providers class/ add in array
+php artisan:make auth                                                     // Create user authentication
 
-php artisan:make auth					// Create user authentication
-
-[session, web
-token, api
-email, custom ]
+[session, web, token, api, email, custom]
 ========================================================= Policy (What user can do!)
 php artisan meke:policy SitePolicy --model:Category
 ========================================================= Scope
@@ -147,7 +155,6 @@ to define new MiddleWhere in class Kernel.php
 ========================================================= Eloquent ORM
 https://laravel.com/docs/8.x/eloquent-relationships
 
-Books::paginate(1)   					// 1 page count
 
 booking->fill(request->input());
 booking->save();
@@ -158,68 +165,81 @@ hasMany()->	<-belongsTo()       Blog <-> Comments
 ------------------------------------------------- Many-to-many
 belongsToMany()-> <-belongsToMany()   User <-> Roles
 
-php artisan make:migration CreateArticleUserTable --create=article_user
-
 $user->articles()->detach();
-$user->articles()->save($article);		        // Save into 2 tables articles and relations
+$user->articles()->save($article);                                         // Save into 2 tables articles and relations
 
-$user->articles()->attach(11);			  	// Add relation in intermediate table
+$user->articles()->attach(11);                                             // Add relation in intermediate table
 ---------------------------------------------Soft-deleting 
-is deleting a record from but not from database!
+Is deleting a record from but not from database!
 
-use SoftDeletes; 			     // Add in model
+use SoftDeletes;                                                           // Add in model
 
-Booking::withTrashed();			     // Recover
+Booking::withTrashed();                                                    // Recover
 ========================================================= Migrations
 https://laravel.com/docs/8.x/migrations#generating-migrations
+php artisan tinker
 
-php artisan migrate    					// Run all migrations
+php artisan migrate                                                        // Run all migrations
 
-php artisan migrate:reset				// Rollback all migration
+php artisan migrate --database=dbName                                      // Specific database
 
-php artisan migrate:refresh				// Rollback and start all
+php artisan migrate --path=/database/migrations/my_migration.php           // Specific migration
 
-php artisan migrate:rollback --step=1   		// 1 migration back down
+php artisan migrate:reset                                                  // Rollback all migration
 
-php artisan schema:dump					// Squash migration to one file
-php artisan schema:dump --prune				// Dump & remove all migrations
+php artisan migrate:refresh                                                // Rollback and start all
+
+php artisan migrate:fresh --seed                                           // Drop all and start all
+
+php artisan migrate:rollback --step=1                                      // 1 migration back down
+
+php artisan schema:dump                                                    // Squash migration to one file
+
+php artisan schema:dump --prune                                            // Dump & remove all migrations
  
-php artisan meke:migration create_hotel_tables 		// Create own migration
+php artisan make:migration create_hotel_tables                             // Create own migration
 
-php artisan make:migration CreateArticleUserTable --create=article_user	// Intermediate table
+php artisan make:migration CreateArticleUserTable --create=article_user    // Pivot table
 
-add->comments()  					// To each row to explaing what does it mean
+add->comments()                                                            // To each row to explaing what does it mean
 
-// Append new column
-php artisan make:migration add_votes_to_article_table --table=articles   
+
+php artisan make:migration add_votes_to_article_table --table=articles     // Append new column   
 ========================================================= MAIL
 if SMTP doesnt not configured u can change driver to [log] in env
 	
-mailtrap.io   						// Use for dev mail testing
+mailtrap.io                                                                // Use for dev mail testing 
 ========================================================= Database Seeding
 php artisan make:seeder UserSeeder
 
-php artisan db:seed    					// Run all seeds 
-========================================================= Artisan tinker (query to the db)
-DB::listen(function (query) {var_dump(query->sql);} );
+php artisan db:seed                                                        // Run all seeds
+
+
+php artisan db:seed --database=petfluencer --class=UsersTableSeeder        // Run all seeds to db
+
+========================================================= Artisan tinker (Listen every query)
+DB::listen(function($query) { var_dump($query->sql, $query->bindings); });
 ========================================================= Composer
-Composer dump-autoload					// Recover list classes autoload_classmap.php
+composer dump-autoload                                                     // Recover list classes autoload_classmap.php
 ========================================================= ENV
-App::environment()				   	// get environment
+App::environment()                                                         // Get environment
 ========================================================= Dusk (Web Browser test)
 php artisan test
 ========================================================= Queue
-php artisan queue:table					// Generate table
+php artisan queue:table                                                    // Generate table
 
 php artisan make:job GenerateReport
 
 php artisan queue:work --once
-php artisan queue:work					// Start
-php artisan queue:listen				// Ensures that a new instance of the app is created for every job, no need to restart
-php artisan queue:restart				// Restart when new code
-php artisan queue:failed			        // Get filed jobs
-php artisan queue:flush					// Delete all failed jobs
+php artisan queue:work                                                     // Start
+php artisan queue:listen                                                   // Ensures that a new instance of the app is created for every job, no need to restart
+php artisan queue:restart                                                  // Restart when new code
+php artisan queue:failed                                                   // Get filed jobs
+php artisan queue:flush                                                    // Delete all failed jobs
 ========================================================= Scheduller
 php artisan schedule:run
-=========================================================
+========================================================= Tests
+php artisan test --parallel
+========================================================= Logs
+tail -n 100 storage/logs/laravel.log | grep 'homepage'                     // Last 100 rows with contains word
 
