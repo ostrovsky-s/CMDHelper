@@ -1,20 +1,35 @@
-==============================================================================	General cmd
-cat /etc/*-release				 // Get version
+=================================================================================  General cmd
+cat /etc/*-release                                                 // Get version
 
-sudo apt-get update && sudo apt-get dist-upgrade // Update system
-sudo apt-get autoclean                           // Remove .deb packages in caches
-sudo apt-get autoremove                          // Remove unused packages
+sudo apt-get update && sudo apt-get dist-upgrade                   // Update system
 
-su - www-data					 // su switch user
+-------------------------------------------------------------------------------- cache cleaning
+sudo apt-get autoclean                                             // Remove .deb packages in caches
+sudo apt-get autoremove                                            // Remove unused packages
+sudo du -sh /var/cache/apt                                         // Size of packages
+sudo apt-get clean                                                 // Full apt cache remove
+journalctl --disk-usage                                            // Size journal space
+sudo journalctl --vacuum-time=3d                                   // Remove except last 3 days						  
+						   
+sudo find / -size +500M -ls                                        // Large files finding
+                                                                   // Docker log truncate
+sudo truncate -s 0 /var/lib/docker/volumes/html_dbdata/_data/general.log 		      		
+--------------------------------------------------------------------------------
+sudo swapoff -a                                                    // Disable swap
 
-tar -zcvf archive.tar.gz directory/		 // Unpack
+su - www-data                                                      // Su switch user
+sudo passwd tom                                                    // Change pwd user
 
-whereis git					// program paths
-du -hs /path/to/directory			// total folder size
+tar -zcvf archive.tar.gz directory/                                // Unpack
+
+whereis git                                                        // Program path
+du -hs /path/to/directory                                          // Total folder size
+
+stat -c "%a %n" *                                                  // Digits permissiion
 =============================================================================== Network
-sudo netstat -tvaep				 // Active network connections
-sudo netstat -anp | grep apache			 // Listening apache port and PID from this if it's running
-sudo netstat -tulpn				 // Active Internet connections (only servers)	
+sudo netstat -tvaep                                                // Active network connections
+sudo netstat -anp | grep apache                                    // Listening apache port and PID from this if it's running
+sudo netstat -tulpn                                                // Active Internet connections (only servers)	
 =============================================================================== Apache
 sudo apache2ctl configtest
 
@@ -22,11 +37,20 @@ sudo service apache2 start
 sudo service apache2 stop
 sudo service apache2 restart
 sudo service apache2 status
+
+sudo systemctl disable apache2                                     // Disable autoload
 =============================================================================== MySQL
 sudo service mysql start
 sudo service mysql stop
 sudo service mysql restart
 sudo service mysql status
-=============================================================================== PS
+
+sudo systemctl disable mysql                                       // Disable autoload
+=============================================================================== PS list
 ps ax | grep 'php'
+  
+=============================================================================== Disc init
+ls /dev/sd*
+
+sudo mount /dev/sdab /media/exchange
 
