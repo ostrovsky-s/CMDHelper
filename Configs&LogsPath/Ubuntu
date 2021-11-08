@@ -31,3 +31,9 @@ sudo vim /var/log/apache2/other_vhosts_access.log
 cd /etc/php/
 
 sudo vim /etc/php/7.4/apache2/php.ini
+
+
+cd /var/log/php-fpm/
+============================================================================== Nginx
+cd /var/log/nginx/
+
