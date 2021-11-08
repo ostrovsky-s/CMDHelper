@@ -13,6 +13,7 @@ find -iname '*.sql'    // find sql dumps in subfolders
 =============================================================================== Connect MYSQL 
 mysql -h localhost -u root [h - host][u - user][p - query pass]
 \с - сancel command
+
 =============================================================================== Create user
 SELECT User, Host FROM mysql.user;
 
@@ -46,7 +47,9 @@ SHOW databases;
 SHOW tables;
 CREATE DB [dbname];
 DROP DB [dbname];
-USE [dbname]; 						 // Switch DB
+USE [dbname]; 						 // Switch DB;
+
+SELECT DATABASE();					// Current DB;
 
 
 
