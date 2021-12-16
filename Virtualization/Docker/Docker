@@ -6,6 +6,8 @@ systemctl status docker.service                      // Stop service
 ==================================================================================================================== Docker-engine
 sudo docker run 734a47c86379
 
+sudo docker run --rm ubuntu:latest cat /etc/os-release  // Get the latest version of ubuntu 
+
 sudo docker stop containerName
 sudo docker start containerName
 sudo docker pause containerName                       // Pause container

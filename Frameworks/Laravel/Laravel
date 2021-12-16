@@ -12,6 +12,8 @@ resources
 vendor
   -composer (system files)
 --------------------------------------------------------- Main
+php artisan help make:controller                                       // Help to any command
+
 php artisan --version                                                  // Laravel version
 
 php artisan list                                                       // Get all commands
@@ -28,6 +30,10 @@ php artisan key:generate                                               // Genere
 php artisan dump-server                                                // Dump server
 
 php artisan ide-helper:generate                                        // Update helper
+
+php artisan stub:publish                                               // Customize stubs
+
+php artisan vendor:publish --provider="ClassPath"                      // Publish configs to your application
 ========================================================= Cache
 php artisan optimize                                                   // Optimize cache configs
 
@@ -113,7 +119,9 @@ Route::get('/test', [ArticleController::class, 'show']);
 
 php artisan make:controller ArticleController                             // Empty class
 
-php artisan make:controller ArticleController --resource                  // Typical CRUD
+php artisan make:controller API/PhotoController --api                     // Api controller 5 methods
+
+php artisan make:controller ArticleController --resource                  // Typical CRUD 7 methods
 
 php artisan make:controller ArticleController --invokable                 // With single action 
 
@@ -160,10 +168,24 @@ booking->fill(request->input());
 booking->save();
 ------------------------------------------------- One-to-one
 hasOne() ->    <-belongsTo(), FK    User <-> Phone
+
+class Mechanic $this->hasOneThrough(Owner::class, Car::class);
+
+Owner::class - final model to retrive
+
 ------------------------------------------------- One-to-many
 hasMany()->	<-belongsTo()       Blog <-> Comments
+
 ------------------------------------------------- Many-to-many
 belongsToMany()-> <-belongsToMany()   User <-> Roles
+
+$role->pivot->created_at                                                   // Access intermediate table
+
+class Country $this->hasManyThrough('App\Post', 'App\User');
+
+------------------------------------------------- Polymorphic
+Doesn't have db relation foreign keys
+class Photo morphTo()->  <-morphToMany('App\Photo', imageable) Class Post  // Photos <-> [Posts, Products, Users]
 
 $user->articles()->detach();
 $user->articles()->save($article);                                         // Save into 2 tables articles and relations
@@ -226,16 +248,23 @@ App::environment()                                                         // Ge
 ========================================================= Dusk (Web Browser test)
 php artisan test
 ========================================================= Queue
-php artisan queue:table                                                    // Generate table
+Bus[chain], Batch[paralel], Race Condition, http://supervisord.org/
 
-php artisan make:job GenerateReport
 
-php artisan queue:work --once
-php artisan queue:work                                                     // Start
+php artisan queue:table                                                    // Generate table for jobs
+
+php artisan make:job GenerateReport                                        // Create new job	
+
+php artisan queue:work --once                                              // Start worker once
+php artisan queue:work                                                     // Start worker
 php artisan queue:listen                                                   // Ensures that a new instance of the app is created for every job, no need to restart
 php artisan queue:restart                                                  // Restart when new code
 php artisan queue:failed                                                   // Get filed jobs
 php artisan queue:flush                                                    // Delete all failed jobs
+
+$report->dispatch()->delay(1)                                              // Sending job to the queue with worker delay 1 second
+public $timeout = 1	                                                    // Terminate if 1 sec done
+public $tries = 3                                                          // To consider failed
 ========================================================= Scheduller
 php artisan schedule:run
 ========================================================= Tests
