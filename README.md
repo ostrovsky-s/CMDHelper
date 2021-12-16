@@ -1,2 +1,3 @@
-# CMDHelper
-Instructions for use apps
+# Most often usage
+
+Command line practice in development
