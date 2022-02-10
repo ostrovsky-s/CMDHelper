@@ -79,6 +79,7 @@ git push origin :heads/f_XXXX                                                   
 
 git reset --hard commit_ID
 git reset --hard HEAD~1                                                            // Delete 1 last commit
+git reset --soft HEAD~1                                                            // Delete only commit wihout changes
 git push -f origin f_XXXX                                                          // Compulsory commit
 git commit --amend -m "new commit"                                                 // Rename last commit
 -------------------------------------------------------------------------------------------------------- add submodule

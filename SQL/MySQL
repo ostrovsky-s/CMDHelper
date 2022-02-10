@@ -14,15 +14,15 @@ find -iname '*.sql'    // find sql dumps in subfolders
 mysql -h localhost -u root [h - host][u - user][p - query pass]
 \с - сancel command
 
-=============================================================================== Create user
+=============================================================================== Create & grant user
 SELECT User, Host FROM mysql.user;
 
 CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'user_password';
 GRANT ALL PRIVILEGES ON database_name.* TO 'database_user'@'localhost';
 
-GRANT ALL PRIVILEGES ON database_name.table_name TO 'database_user'@'localhost'; 		// specify table;
+GRANT ALL PRIVILEGES ON database_name.table_name TO 'database_user'@'localhost'; 		// To specific table;
 =============================================================================== Delete user
-SELECT User,Host FROM mysql.user;
+SELECT User, Host FROM mysql.user;
 
 SHOW GRANTS FOR 'bloguser'@'localhost';
 REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'bloguser'@'localhost';
@@ -35,7 +35,7 @@ SHOW VARIABLES LIKE 'collation%';
 
 SELECT @@character_set_database, @@collation_database;
 
-SHOW TABLE STATUS FROM festi_framework; //Show the character set and the collation of your MySQL tables
+SHOW TABLE STATUS FROM dbName; //Show the character set and the collation of your MySQL tables
 
 ALTER DATABASE databasename CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ALTER TABLE tablename CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; 
@@ -45,13 +45,10 @@ ALTER TABLE tablename CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_c
 
 SHOW databases;			 
 SHOW tables;
-CREATE DB [dbname];
-DROP DB [dbname];
+DROP TABLE tablename;
 USE [dbname]; 						 // Switch DB;
 
 SELECT DATABASE();					// Current DB;
-
-
 
 SHOW CREATE DATABASE ACADEMY\G
 SHOW CREATE TABLE USER\G
@@ -61,7 +58,7 @@ INSERT INTO 'user' (username,email) vales ('','','') () ()
 INSERT IGNORE INTO TABLE				// Ignore dublicates
 UPDATE 'user' SET email = 'i.d@gmai.com WHERE id = 3;  
 SELECT * FROM user WHERE username = 'admin';
-DROP TABLE tablename;
+
 ALTER TABLE user ADD UNIQUE KEY 'login' (username)- 	// Update structure
 SHOW VARIAbLES LIKE
 ========================================================================================  Check query performance 

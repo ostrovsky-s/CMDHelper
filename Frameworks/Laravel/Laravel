@@ -271,4 +271,6 @@ php artisan schedule:run
 php artisan test --parallel
 ========================================================= Logs
 tail -n 100 storage/logs/laravel.log | grep 'homepage'                     // Last 100 rows with contains word
+========================================================= Sentry
+php artisan sentry:test
 

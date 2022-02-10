@@ -41,15 +41,15 @@ sudo docker push
 sudo docker exec -i db mysql -u root -f -proot mysql < dumq.sql  // Import to db
 ==================================================================================================================== Clean System
 
-sudo docker system prune   			       	WARNING! This will remove:
+sudo docker system prune   			       	WARNING! This will remove: (including volumes without containers)
         							- all stopped containers
         							- all networks not used by at least one container
         							- all dangling images
         							- all build cache
 
 sudo docker image prune -a                             // Remove all images
-sudo docker network prune                              // Remove networks
 
+sudo docker network prune                              // Remove networks
 sudo docker image prune					
 sudo docker container prune
 sudo docker volume prune
