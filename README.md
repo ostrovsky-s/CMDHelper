@@ -1,3 +1,3 @@
-# Most often usage
+# Most often usage commands
 
 Command line practice in development
