@@ -139,7 +139,9 @@ $request->all()->dd();
 
 $request->validate()                                                      // Method for data validating
 
-php artisan make:request Contact                                          // Add handle outside controller      
+php artisan make:request Analytics/StoreAnalytics                         // Add request to dir
+========================================================= Resource
+run artisan make:resource AnalyticResource 
 ========================================================= Exceptions
 
 ========================================================= AUTH   
@@ -238,6 +240,8 @@ php artisan db:seed                                                        // Ru
 
 
 php artisan db:seed --database=petfluencer --class=UsersTableSeeder        // Run all seeds to db
+
+php artisan db:seed TranslationsTableSeeder
 
 ========================================================= Artisan tinker (Listen every query)
 DB::listen(function($query) { var_dump($query->sql, $query->bindings); });

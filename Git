@@ -1,4 +1,7 @@
 git clone https://github.com/path.git                                            // Get repository
+
+https://github.com/settings/tokens/						    // App tokens
+cd ~/.config/composer/
 ================================================================================= Branch
 
 git branch                                                                        // View branches

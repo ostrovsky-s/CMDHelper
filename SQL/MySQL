@@ -7,6 +7,8 @@ Create dump:
 	mysqldump -u userName -p -hlocalhost dbname > dump.sql
 
 	mysqldump -u... -p... mydb t1 t2 t3 > mydb_tables.sql
+	
+	mysqldump --set-gtid-purged=OFF --column-statistics=0 -u userName -p -hcloudHost prepay > dump.sql
 
 ------------------------------------------------------------------
 find -iname '*.sql'    // find sql dumps in subfolders

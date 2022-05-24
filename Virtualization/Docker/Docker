@@ -31,7 +31,8 @@ sudo docker image ls                                  // Docker images list
 
 sudo docker network ls                                // Get networks		
 
-sudo docker exec containerName cat /etc/hosts         // Get IP container	
+sudo docker exec containerName cat /etc/hosts         // Get IP container
+getent hosts nginx | awk '{ print $1 }'	
 	
 sudo docker search
 sudo docker pull	containerName			
@@ -61,6 +62,8 @@ sudo docker-compose up -d --build                      // Rebuild docker configs
 sudo docker-compose down                               // Remove images
 sudo docker-compose down --volumes                     // Shutdown and cleanup volumes
 
+
+make help
 ==================================================================================================================== Logs
 sudo docker logs -f --details monitoring
 sudo docker logs containerName                          // show logs in docker-wp_db_1
