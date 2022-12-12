@@ -2,6 +2,11 @@
 cat /etc/*-release                                                 // Get version
 
 sudo apt-get update && sudo apt-get dist-upgrade                   // Update system
+apt list --installed
+
+uname -r
+dpkg --get-selections | grep linux-image
+sudo apt purge linux-image-5.13.0-*
 
 -------------------------------------------------------------------------------- cache cleaning
 sudo apt-get autoclean                                             // Remove .deb packages in caches

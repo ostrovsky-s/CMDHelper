@@ -2,11 +2,13 @@ composer --version
 
 composer list						// List of all commands
 
-composer search "packegeName"			
+composer search "packageName"				// Search package		
+composer show spatie/laravel-permission		// Show package info			
 
 composer init						// Create basic composer.json
 composer show						// List of all packages
-composer remove                                       // Remove package
+composer remove phpoffice/phpspreadsheet              // Remove package
+composer remove vendor/package
 
 composer run-script					// Manual run	
 
@@ -14,10 +16,13 @@ composer require vendor/package                       // Add package into compos
 composer install --no-dev				// Exclude dev dependencies
 composer install					// If no composer.lock resolve composer.json then generate compser.lock
 
-composer install --ignore-platform-reqs
+composer install --ignore-platform-reqs		// Install without checking
+composer check-platform-reqs				// Check platform
+composer check-platform-reqs --no-dev			// Prod
 
 composer update                                       // Update dependencies to latest version & update composer.json
 composer update --lock					// Update dependencies only lock file without installation
+composer update --lock --ignore-platform-reqs
 
 composer self-update					// Upgrade composer core
 
@@ -32,3 +37,5 @@ composer clear-cache
 composer diagnose					// Automatic check issues 
 
 composer licenses					// Package licenses info
+
+

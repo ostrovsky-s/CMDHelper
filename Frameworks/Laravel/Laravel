@@ -104,6 +104,7 @@ php artisan make:model Ticket                                            // Use 
 
 php artisan make:model --factory Ticket  
 
+php artisan make:factory ClassFactory
 $table = 'to assing table name';
 ========================================================= Route
 php artisan route:list
@@ -126,6 +127,8 @@ php artisan make:controller ArticleController --resource                  // Typ
 php artisan make:controller ArticleController --invokable                 // With single action 
 
 php artisan make:controller TaskController --plain                        // Empty controller
+========================================================= Command
+php artisan make:command UploadToBucket
 ========================================================= Provider
 php artisan make:provider EnvatoCustomServiceProvider
 ========================================================= Request
@@ -139,17 +142,17 @@ $request->all()->dd();
 
 $request->validate()                                                      // Method for data validating
 
-php artisan make:request Analytics/StoreAnalytics                         // Add request to dir
+php artisan make:request Analytics/StoreAnalyticsRequest                  // Add request to dir
 ========================================================= Resource
 run artisan make:resource AnalyticResource 
 ========================================================= Exceptions
-
+php artisan make:exception MyCustomException --render
 ========================================================= AUTH   
 php artisan:make auth                                                     // Create user authentication
 
 [session, web, token, api, email, custom]
 ========================================================= Policy (What user can do!)
-php artisan meke:policy SitePolicy --model:Category
+php artisan make:policy SitePolicy --model:Category
 ========================================================= Scope
 
 ========================================================= Observer
@@ -159,7 +162,7 @@ chunk(index) use in db query,
 first(); 
 shufle();
 ========================================================= Middlewhare
-php artisan meke:middlewhare Loggin
+php artisan make:middlewhare Loggin
 
 to define new MiddleWhere in class Kernel.php
 ========================================================= Eloquent ORM
@@ -249,8 +252,6 @@ DB::listen(function($query) { var_dump($query->sql, $query->bindings); });
 composer dump-autoload                                                     // Recover list classes autoload_classmap.php
 ========================================================= ENV
 App::environment()                                                         // Get environment
-========================================================= Dusk (Web Browser test)
-php artisan test
 ========================================================= Queue
 Bus[chain], Batch[paralel], Race Condition, http://supervisord.org/
 
@@ -273,6 +274,7 @@ public $tries = 3                                                          // To
 php artisan schedule:run
 ========================================================= Tests
 php artisan test --parallel
+php artisan test --filter ClassNameTest
 ========================================================= Logs
 tail -n 100 storage/logs/laravel.log | grep 'homepage'                     // Last 100 rows with contains word
 ========================================================= Sentry
