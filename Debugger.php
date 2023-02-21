@@ -2,12 +2,14 @@
 define('WP_DEBUG', true);
 define('WP_DEBUG_LOG', true);
 define('WP_DEBUG_DISPLAY', false);
-//------------------------------------------------------------------------------------- WORDPRESS HOST
+//------------------------------------------------------------------------------------- WORDPRESS
 $content = json_encode($_REQUEST).PHP_EOL;        
 $host = 'url.com';
 
 $path = ABSPATH.'/wp-content/custom.log';
 file_put_contents($path, $content, FILE_APPEND);
+//------------------------------------------------------------------------------------- Laravel
+logs()->critical('$data',[$data]);
 //------------------------------------------------------------------------------------- Production DEBUG
 $object = null;
 
