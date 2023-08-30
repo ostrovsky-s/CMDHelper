@@ -52,6 +52,8 @@ sudo service mysql status
 
 sudo systemctl disable mysql                                       // Disable autoload
 =============================================================================== PS list
+htop
+top
 ps ax | grep 'php'
   
 =============================================================================== Disc init
