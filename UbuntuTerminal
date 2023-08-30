@@ -21,6 +21,7 @@ sudo find / -size +500M -ls                                        // Large file
 sudo truncate -s 0 /var/lib/docker/volumes/html_dbdata/_data/general.log 		      		
 --------------------------------------------------------------------------------
 sudo swapoff -a                                                    // Disable swap
+vi /etc/fstab 						           // Permanent #disable		
 
 su - www-data                                                      // Su switch user
 sudo passwd tom                                                    // Change pwd user
