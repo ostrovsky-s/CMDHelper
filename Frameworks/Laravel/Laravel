@@ -25,7 +25,7 @@ php artisan down                                                       // Mainte
 
 php artisan serve                                                      // Start laravel local server 
 
-php artisan key:generate                                               // Generete new key
+php artisan key:generate                                               // Generate new key
 
 php artisan dump-server                                                // Dump server
 
@@ -45,7 +45,7 @@ php artisan cache:clear                                                // App ca
 php artisan view:cache                                                 // Compile views
 php artisan view:clear
 
-php artisan route:cache                                                // Add route cahce
+php artisan route:cache                                                // Add route cache
 php artisan route:clear
 ========================================================= Blade Templates & assets
 blade.php   - require
@@ -60,10 +60,6 @@ saas - css compiler
 $errors in any template exist
 
 {{ route(booking.create)}}  // output var, route is a global helper function!
-
-you can create own custom templates
-
-https://laravel.com/docs/5.0/templates!
 
 https://momentjs.com/
 https://www.layoutit.com/
@@ -82,7 +78,7 @@ console.log(jQuery().jquery);
 
 The --save-dev option save only for dev pack
 
-npm run dev                                                              // Create compilling files
+npm run dev                                                              // Create compiling files
 npm run watch                                                            // Webpack will automatically recompile your assets when it detects a change
 
 npm run production                                                       // To build all css js and minify them
@@ -94,18 +90,15 @@ Unlike quotes in strings, template literals are enclosed
 by the backtick (` `) character 
 (key below the ESC key in QWERTY keyboard)
 ----------------------------------------------------------------------------------------
-
-dropzone - for upload files
 ========================================================= Forms
 
 ========================================================= Models
-https://laravel.com/docs/6.x/eloquent#defining-models
-php artisan make:model Ticket                                            // Use params   -mr   m - add migraton, r - add resource controller
+php artisan make:model Ticket                                            // Use params   -mr   m - add migration, r - add resource controller
 
 php artisan make:model --factory Ticket  
 
 php artisan make:factory ClassFactory
-$table = 'to assing table name';
+$table = 'to assign table name';
 ========================================================= Route
 php artisan route:list
 
@@ -166,9 +159,6 @@ php artisan make:middlewhare Loggin
 
 to define new MiddleWhere in class Kernel.php
 ========================================================= Eloquent ORM
-https://laravel.com/docs/8.x/eloquent-relationships
-
-
 booking->fill(request->input());
 booking->save();
 ------------------------------------------------- One-to-one
@@ -203,7 +193,6 @@ use SoftDeletes;                                                           // Ad
 
 Booking::withTrashed();                                                    // Recover
 ========================================================= Migrations
-https://laravel.com/docs/8.x/migrations#generating-migrations
 php artisan tinker
 
 php artisan migrate                                                        // Run all migrations
@@ -228,7 +217,7 @@ php artisan make:migration create_hotel_tables                             // Cr
 
 php artisan make:migration CreateArticleUserTable --create=article_user    // Pivot table
 
-add->comments()                                                            // To each row to explaing what does it mean
+add->comments()                                                            // To each row to explain what does it mean
 
 
 php artisan make:migration add_votes_to_article_table --table=articles     // Append new column   
@@ -253,8 +242,7 @@ composer dump-autoload                                                     // Re
 ========================================================= ENV
 App::environment()                                                         // Get environment
 ========================================================= Queue
-Bus[chain], Batch[paralel], Race Condition, http://supervisord.org/
-
+Bus[chain], Batch[parallel], Race Condition, http://supervisord.org/
 
 php artisan queue:table                                                    // Generate table for jobs
 
@@ -270,7 +258,7 @@ php artisan queue:flush                                                    // De
 $report->dispatch()->delay(1)                                              // Sending job to the queue with worker delay 1 second
 public $timeout = 1	                                                    // Terminate if 1 sec done
 public $tries = 3                                                          // To consider failed
-========================================================= Scheduller
+========================================================= Scheduler
 php artisan schedule:run
 ========================================================= Tests
 php artisan test --parallel
@@ -279,4 +267,3 @@ php artisan test --filter ClassNameTest
 tail -n 100 storage/logs/laravel.log | grep 'homepage'                     // Last 100 rows with contains word
 ========================================================= Sentry
 php artisan sentry:test
-
