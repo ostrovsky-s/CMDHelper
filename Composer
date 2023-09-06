@@ -1,22 +1,25 @@
 composer --version
 
-composer list						// List of all commands
+composer list					       // List of all commands
 
-composer search "packageName"				// Search package		
-composer show spatie/laravel-permission		// Show package info			
+composer search "packageName"			      // Search package		
+composer show spatie/laravel-permission		      // Show package info			
 
-composer init						// Create basic composer.json
-composer show						// List of all packages
+composer init					      // Create basic composer.json
+composer show					      // List of all packages
+composer show --all laravel/framework		      // Show all available versions		
 composer remove phpoffice/phpspreadsheet              // Remove package
 composer remove vendor/package
 
 composer run-script					// Manual run	
 
-composer require vendor/package                       // Add package into composer.json & update lock
+composer require vendor/package                         // Add package into composer.json & update lock
+composer require laravel/framework "^9.8.0"		// Particular version
+
 composer install --no-dev				// Exclude dev dependencies
 composer install					// If no composer.lock resolve composer.json then generate compser.lock
 
-composer install --ignore-platform-reqs		// Install without checking
+composer install --ignore-platform-reqs		        // Install without checking
 composer check-platform-reqs				// Check platform
 composer check-platform-reqs --no-dev			// Prod
 
@@ -37,5 +40,7 @@ composer clear-cache
 composer diagnose					// Automatic check issues 
 
 composer licenses					// Package licenses info
-
+============================================================================================ Packages
+composer require guzzlehttp/guzzle
+composer require spatie/laravel-permission
 

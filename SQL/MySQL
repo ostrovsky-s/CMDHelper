@@ -17,6 +17,8 @@ mysql -h localhost -u root [h - host][u - user][p - query pass]
 \с - сancel command
 
 =============================================================================== Create & grant user
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'NOsf3i%nD'		// Fix root login using pwd
+
 SELECT User, Host FROM mysql.user;
 
 CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'user_password';

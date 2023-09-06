@@ -35,7 +35,9 @@ stat -c "%a %n" *                                                  // Digits per
 =============================================================================== Network
 sudo netstat -tvaep                                                // Active network connections
 sudo netstat -anp | grep apache                                    // Listening apache port and PID from this if it's running
-sudo netstat -tulpn                                                // Active Internet connections (only servers)	
+sudo netstat -tulpn                                                // Active Internet connections (only servers)
+
+netstat -tlnup | grep -i 3306	
 =============================================================================== Apache
 sudo apache2ctl configtest
 

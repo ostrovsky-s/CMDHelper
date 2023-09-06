@@ -12,6 +12,8 @@ resources
 vendor
   -composer (system files)
 --------------------------------------------------------- Main
+php artisan about						       // About config info	
+php artisan config:show database				       // Show particular config	
 php artisan help make:controller                                       // Help to any command
 
 php artisan --version                                                  // Laravel version
