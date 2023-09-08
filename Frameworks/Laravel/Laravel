@@ -95,6 +95,7 @@ by the backtick (` `) character
 ========================================================= Forms
 
 ========================================================= Models
+php artisan make:model             // Interactive select
 php artisan make:model Ticket                                            // Use params   -mr   m - add migration, r - add resource controller
 
 php artisan make:model --factory Ticket  
@@ -103,6 +104,8 @@ php artisan make:factory ClassFactory
 $table = 'to assign table name';
 ========================================================= Route
 php artisan route:list
+
+php artisan route:list --path tasks                                      // Filter by path
 
 Route::resources([
     'photos' => PhotoController::class,
@@ -233,7 +236,7 @@ php artisan make:seeder UserSeeder
 php artisan db:seed                                                        // Run all seeds
 
 
-php artisan db:seed --database=petfluencer --class=UsersTableSeeder        // Run all seeds to db
+php artisan db:seed --database=name --class=UsersTableSeeder        // Run all seeds to db
 
 php artisan db:seed TranslationsTableSeeder
 

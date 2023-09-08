@@ -23,7 +23,7 @@ composer install --ignore-platform-reqs		        // Install without checking
 composer check-platform-reqs				// Check platform
 composer check-platform-reqs --no-dev			// Prod
 
-composer update                                       // Update dependencies to latest version & update composer.json
+composer update                                         // Update dependencies to latest version & update composer.json
 composer update --lock					// Update dependencies only lock file without installation
 composer update --lock --ignore-platform-reqs
 
@@ -40,7 +40,3 @@ composer clear-cache
 composer diagnose					// Automatic check issues 
 
 composer licenses					// Package licenses info
-============================================================================================ Packages
-composer require guzzlehttp/guzzle
-composer require spatie/laravel-permission
-
