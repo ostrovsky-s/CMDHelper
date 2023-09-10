@@ -38,6 +38,7 @@ php artisan stub:publish                                               // Custom
 php artisan vendor:publish --provider="ClassPath"                      // Publish configs to your application
 ========================================================= Cache
 php artisan optimize                                                   // Optimize cache configs
+php artisan optimize:clear					       // Remove bootstrap cache	
 
 php artisan config:cache                                               // Clear config cache
 php artisan config:clear 
@@ -86,14 +87,6 @@ npm run watch                                                            // Webp
 npm run production                                                       // To build all css js and minify them
 
 npm ls --depth=0
-----------------------------------------------------------------------------------------
-Before ES6, template literals were called as template strings. 
-Unlike quotes in strings, template literals are enclosed 
-by the backtick (` `) character 
-(key below the ESC key in QWERTY keyboard)
-----------------------------------------------------------------------------------------
-========================================================= Forms
-
 ========================================================= Models
 php artisan make:model             // Interactive select
 php artisan make:model Ticket                                            // Use params   -mr   m - add migration, r - add resource controller
@@ -118,7 +111,7 @@ Route::get('/test', [ArticleController::class, 'show']);
 
 php artisan make:controller ArticleController                             // Empty class
 
-php artisan make:controller API/PhotoController --api                     // Api controller 5 methods
+php artisan make:controller Api/PhotoController --api                     // Api controller 5 methods
 
 php artisan make:controller ArticleController --resource                  // Typical CRUD 7 methods
 
@@ -146,9 +139,7 @@ run artisan make:resource AnalyticResource
 ========================================================= Exceptions
 php artisan make:exception MyCustomException --render
 ========================================================= AUTH   
-php artisan:make auth                                                     // Create user authentication
-
-[session, web, token, api, email, custom]
+php artisan make:auth                                                     // Create user authentication
 ========================================================= Policy (What user can do!)
 php artisan make:policy SitePolicy --model:Category
 ========================================================= Scope
@@ -161,6 +152,7 @@ first();
 shufle();
 ========================================================= Middlewhare
 php artisan make:middlewhare Loggin
+php artisan make:middleware ForceJsonResponse
 
 to define new MiddleWhere in class Kernel.php
 ========================================================= Eloquent ORM
@@ -218,7 +210,7 @@ php artisan schema:dump                                                    // Sq
 
 php artisan schema:dump --prune                                            // Dump & remove all migrations
  
-php artisan make:migration create_hotel_tables                             // Create own migration
+php artisan make:migration create_phones_table                             // Create own migration
 
 php artisan make:migration CreateArticleUserTable --create=article_user    // Pivot table
 
@@ -264,8 +256,12 @@ $report->dispatch()->delay(1)                                              // Se
 public $timeout = 1	                                                    // Terminate if 1 sec done
 public $tries = 3                                                          // To consider failed
 ========================================================= Scheduler
+php artisan schedule:list
 php artisan schedule:run
+
 ========================================================= Tests
+php artisan make:test UserTest
+php artisan make:test UserTest --unit
 php artisan test --parallel
 php artisan test --filter ClassNameTest
 ========================================================= Logs
