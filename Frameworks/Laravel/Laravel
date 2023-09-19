@@ -88,7 +88,7 @@ npm run production                                                       // To b
 
 npm ls --depth=0
 ========================================================= Models
-php artisan make:model             // Interactive select
+php artisan make:model                                                   // Create new model
 php artisan make:model Ticket                                            // Use params   -mr   m - add migration, r - add resource controller
 
 php artisan make:model --factory Ticket  
@@ -139,13 +139,13 @@ run artisan make:resource AnalyticResource
 ========================================================= Exceptions
 php artisan make:exception MyCustomException --render
 ========================================================= AUTH   
-php artisan make:auth                                                     // Create user authentication
+	                                                     // Create user authentication
 ========================================================= Policy (What user can do!)
 php artisan make:policy SitePolicy --model:Category
 ========================================================= Scope
 
 ========================================================= Observer
-
+php artisan make:observer TaskObserver -m Task
 ========================================================= Collections
 chunk(index) use in db query,
 first(); 
@@ -153,8 +153,6 @@ shufle();
 ========================================================= Middlewhare
 php artisan make:middlewhare Loggin
 php artisan make:middleware ForceJsonResponse
-
-to define new MiddleWhere in class Kernel.php
 ========================================================= Eloquent ORM
 booking->fill(request->input());
 booking->save();
@@ -172,9 +170,6 @@ hasMany()->	<-belongsTo()       Blog <-> Comments
 belongsToMany()-> <-belongsToMany()   User <-> Roles
 
 $role->pivot->created_at                                                   // Access intermediate table
-
-class Country $this->hasManyThrough('App\Post', 'App\User');
-
 ------------------------------------------------- Polymorphic
 Doesn't have db relation foreign keys
 class Photo morphTo()->  <-morphToMany('App\Photo', imageable) Class Post  // Photos <-> [Posts, Products, Users]
@@ -206,18 +201,19 @@ php artisan migrate:fresh --seed                                           // Dr
 
 php artisan migrate:rollback --step=1                                      // 1 migration back down
 
+php artisan migrate --pretend					           // Preview SQL DDL		
+
 php artisan schema:dump                                                    // Squash migration to one file
 
 php artisan schema:dump --prune                                            // Dump & remove all migrations
  
 php artisan make:migration create_phones_table                             // Create own migration
 
-php artisan make:migration CreateArticleUserTable --create=article_user    // Pivot table
+php artisan make:migration create_regions_stores_table			   // Pivot table
 
 add->comments()                                                            // To each row to explain what does it mean
 
-
-php artisan make:migration add_votes_to_article_table --table=articles     // Append new column   
+php artisan make:migration add_date_of_birth_to_users_table     	   // Append new column   
 ========================================================= MAIL
 if SMTP doesnt not configured u can change driver to [log] in env
 	
@@ -227,17 +223,15 @@ php artisan make:seeder UserSeeder
 
 php artisan db:seed                                                        // Run all seeds
 
-
-php artisan db:seed --database=name --class=UsersTableSeeder        // Run all seeds to db
+php artisan db:seed --database=name --class=UsersTableSeeder               // Run all seeds to db
 
 php artisan db:seed TranslationsTableSeeder
-
 ========================================================= Artisan tinker (Listen every query)
 DB::listen(function($query) { var_dump($query->sql, $query->bindings); });
 ========================================================= Composer
 composer dump-autoload                                                     // Recover list classes autoload_classmap.php
 ========================================================= ENV
-App::environment()                                                         // Get environment
+App::environment()                                                         // Get environment 
 ========================================================= Queue
 Bus[chain], Batch[parallel], Race Condition, http://supervisord.org/
 
@@ -253,12 +247,11 @@ php artisan queue:failed                                                   // Ge
 php artisan queue:flush                                                    // Delete all failed jobs
 
 $report->dispatch()->delay(1)                                              // Sending job to the queue with worker delay 1 second
-public $timeout = 1	                                                    // Terminate if 1 sec done
+public $timeout = 1	                                                   // Terminate if 1 sec done
 public $tries = 3                                                          // To consider failed
 ========================================================= Scheduler
 php artisan schedule:list
 php artisan schedule:run
-
 ========================================================= Tests
 php artisan make:test UserTest
 php artisan make:test UserTest --unit
