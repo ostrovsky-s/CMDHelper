@@ -261,3 +261,15 @@ php artisan test --filter ClassNameTest
 tail -n 100 storage/logs/laravel.log | grep 'homepage'                     // Last 100 rows with contains word
 ========================================================= Sentry
 php artisan sentry:test
+========================================================= Dumps
+Http::dd()->get('http://example.com');
+
+DB::table('users')->where('votes', '>', 100)->dd();
+ 
+DB::table('users')->where('votes', '>', 100)->dump();
+
+The dumpRawSql and ddRawSql methods may be invoked on a query to dump the query's SQL with all parameter bindings properly substituted:
+
+DB::table('users')->where('votes', '>', 100)->dumpRawSql();
+ 
+DB::table('users')->where('votes', '>', 100)->ddRawSql();
