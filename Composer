@@ -1,15 +1,17 @@
 composer --version
 
-composer list					       // List of all commands
+composer list					        // List of all commands
 
-composer search "packageName"			      // Search package		
-composer show spatie/laravel-permission		      // Show package info			
+composer search "packageName"			        // Search package		
+composer show spatie/laravel-permission		        // Show package info			
 
-composer init					      // Create basic composer.json
-composer show					      // List of all packages
-composer show --all laravel/framework		      // Show all available versions		
-composer remove phpoffice/phpspreadsheet              // Remove package
+composer init					        // Create basic composer.json
+composer show					        // List of all packages
+composer show --all laravel/framework		        // Show all available versions		
+composer remove phpoffice/phpspreadsheet                // Remove package
 composer remove vendor/package
+
+composer require vendor/package:version                 // Require specific version 	
 
 composer run-script					// Manual run	
 

@@ -88,7 +88,7 @@ npm run production                                                       // To b
 
 npm ls --depth=0
 ========================================================= Models
-php artisan make:model                                                   // Create new model
+php artisan make:model                                                   // Create new model with prompt
 php artisan make:model Ticket                                            // Use params   -mr   m - add migration, r - add resource controller
 
 php artisan make:model --factory Ticket  
