@@ -39,3 +39,4 @@ composer diagnose					// Automatic check issues
 composer licenses					// Package licenses info
 
 
+composer install --optimize-autoloader --no-dev	WHEN RUN TO PRODUCTION

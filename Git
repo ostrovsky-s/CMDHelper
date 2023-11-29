@@ -77,7 +77,8 @@ git tag -a v1.0 -m 'add version'                                                
 git push origin v1.0                                                               // Post tag on a repo
 
 Update remote branches
-git remote update origin --prune ---------------------------------------------------------------------- conflict
+git remote update origin --prune 
+---------------------------------------------------------------------- conflict
 git push origin :heads/f_XXXX                                                      // Delete remote branch
 
 git reset --hard commit_ID
