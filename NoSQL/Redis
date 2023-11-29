@@ -5,10 +5,7 @@ redis 127.0.0.1:6379> ping
 PONG
 redis 127.0.0.1:6379> set mykey somevalue
 OK
-redis 127.0.0.1:6379> get mykey
-"somevalue"
-
-
+redis 127.0.0.1:6379> get mykey "somevalue"
 
 then php lib
 

@@ -1,5 +1,7 @@
 Use debug bur for query listen
 --------------------------------------------------------- Main
+php artisan about						       // About config info	
+php artisan config:show database				       // Show particular config	
 php artisan help make:controller                                       // Help to any command
 
 php artisan --version                                                  // Laravel version
@@ -15,7 +17,7 @@ php artisan down                                                       // Mainte
 
 php artisan serve                                                      // Start laravel local server 
 
-php artisan key:generate                                               // Generete new key
+php artisan key:generate                                               // Generate new key
 
 php artisan dump-server                                                // Dump server
 
@@ -30,6 +32,7 @@ php artisan storage:link
 php artisan make:component Alert                                      // Component			
 ========================================================= Cache
 php artisan optimize                                                   // Optimize cache configs
+php artisan optimize:clear					       // Remove bootstrap cache	
 
 php artisan config:cache                                               // Clear config cache
 php artisan config:clear 
@@ -39,7 +42,7 @@ php artisan cache:clear                                                // App ca
 php artisan view:cache                                                 // Compile views
 php artisan view:clear
 
-php artisan route:cache                                                // Add route cahce
+php artisan route:cache                                                // Add route cache
 php artisan route:clear
 ========================================================= Blade Templates & assets
 blade.php   - require
@@ -54,10 +57,6 @@ saas - css compiler
 $errors in any template exist
 
 {{ route(booking.create)}}  // output var, route is a global helper function!
-
-you can create own custom templates
-
-https://laravel.com/docs/5.0/templates!
 
 https://momentjs.com/
 https://www.layoutit.com/
@@ -76,34 +75,25 @@ console.log(jQuery().jquery);
 
 The --save-dev option save only for dev pack
 
-npm run dev                                                              // Create compilling files
+npm run dev                                                              // Create compiling files
 npm run watch                                                            // Webpack will automatically recompile your assets when it detects a change
 
 npm run production                                                       // To build all css js and minify them
 
 npm ls --depth=0
-----------------------------------------------------------------------------------------
-Before ES6, template literals were called as template strings. 
-Unlike quotes in strings, template literals are enclosed 
-by the backtick (` `) character 
-(key below the ESC key in QWERTY keyboard)
-----------------------------------------------------------------------------------------
-
-dropzone - for upload files
-========================================================= Forms
-
 ========================================================= Models
-https://laravel.com/docs/6.x/eloquent#defining-models
-php artisan make:model Ticket                                            // Use params   -mr   m - add migraton, r - add resource controller
+php artisan make:model                                                   // Create new model with prompt
+php artisan make:model Ticket                                            // Use params   -mr   m - add migration, r - add resource controller
 
 php artisan make:model --factory Ticket  
 
 php artisan make:factory ClassFactory
-$table = 'to assing table name';
+$table = 'to assign table name';
 ========================================================= Route
 php artisan route:list
 
 php artisan route:list --except-vendor                                 
+php artisan route:list --path tasks                                      // Filter by path
 
 Route::resources([
     'photos' => PhotoController::class,
@@ -116,7 +106,7 @@ Route::get('/test', [ArticleController::class, 'show']);
 
 php artisan make:controller ArticleController                             // Empty class
 
-php artisan make:controller API/PhotoController --api                     // Api controller 5 methods
+php artisan make:controller Api/PhotoController --api                     // Api controller 5 methods
 
 php artisan make:controller ArticleController --resource                  // Typical CRUD 7 methods
 
@@ -144,15 +134,13 @@ run artisan make:resource AnalyticResource
 ========================================================= Exceptions
 php artisan make:exception MyCustomException --render
 ========================================================= AUTH   
-php artisan:make auth                                                     // Create user authentication
-
-[session, web, token, api, email, custom]
+	                                                     // Create user authentication
 ========================================================= Policy (What user can do!)
 php artisan make:policy SitePolicy --model:Category
 ========================================================= Scope
 
 ========================================================= Observer
-
+php artisan make:observer TaskObserver -m Task
 ========================================================= Collections
 chunk(index) use in db query,
 first(); 
@@ -162,10 +150,8 @@ php artisan make:middlewhare Loggin
 php artisan make:middleware EnsureTokenIsValid
 
 to define new MiddleWhere in class Kernel.php
+php artisan make:middleware ForceJsonResponse
 ========================================================= Eloquent ORM
-https://laravel.com/docs/8.x/eloquent-relationships
-
-
 booking->fill(request->input());
 booking->save();
 ------------------------------------------------- One-to-one
@@ -182,9 +168,6 @@ hasMany()->	<-belongsTo()       Blog <-> Comments
 belongsToMany()-> <-belongsToMany()   User <-> Roles
 
 $role->pivot->created_at                                                   // Access intermediate table
-
-class Country $this->hasManyThrough('App\Post', 'App\User');
-
 ------------------------------------------------- Polymorphic
 Doesn't have db relation foreign keys
 class Photo morphTo()->  <-morphToMany('App\Photo', imageable) Class Post  // Photos <-> [Posts, Products, Users]
@@ -200,7 +183,6 @@ use SoftDeletes;                                                           // Ad
 
 Booking::withTrashed();                                                    // Recover
 ========================================================= Migrations
-https://laravel.com/docs/8.x/migrations#generating-migrations
 php artisan tinker
 
 php artisan migrate                                                        // Run all migrations
@@ -217,18 +199,19 @@ php artisan migrate:fresh --seed                                           // Dr
 
 php artisan migrate:rollback --step=1                                      // 1 migration back down
 
+php artisan migrate --pretend					           // Preview SQL DDL		
+
 php artisan schema:dump                                                    // Squash migration to one file
 
 php artisan schema:dump --prune                                            // Dump & remove all migrations
  
-php artisan make:migration create_hotel_tables                             // Create own migration
+php artisan make:migration create_phones_table                             // Create own migration
 
-php artisan make:migration CreateArticleUserTable --create=article_user    // Pivot table
+php artisan make:migration create_regions_stores_table			   // Pivot table
 
-add->comments()                                                            // To each row to explaing what does it mean
+add->comments()                                                            // To each row to explain what does it mean
 
-
-php artisan make:migration add_votes_to_article_table --table=articles     // Append new column   
+php artisan make:migration add_date_of_birth_to_users_table     	   // Append new column   
 ========================================================= MAIL
 if SMTP doesnt not configured u can change driver to [log] in env
 	
@@ -238,11 +221,9 @@ php artisan make:seeder UserSeeder
 
 php artisan db:seed                                                        // Run all seeds
 
-
-php artisan db:seed --database=petfluencer --class=UsersTableSeeder        // Run all seeds to db
+php artisan db:seed --database=name --class=UsersTableSeeder               // Run all seeds to db
 
 php artisan db:seed TranslationsTableSeeder
-
 ========================================================= Artisan tinker (Listen every query)
 DB::listen(function($query) { var_dump($query->sql, $query->bindings); });
 ========================================================= Composer
@@ -252,8 +233,7 @@ App::environment()                                                         // Ge
 php artisan env:encrypt
 php artisan env:decrypt
 ========================================================= Queue
-Bus[chain], Batch[paralel], Race Condition, http://supervisord.org/
-
+Bus[chain], Batch[parallel], Race Condition, http://supervisord.org/
 
 php artisan queue:table                                                    // Generate table for jobs
 
@@ -267,15 +247,29 @@ php artisan queue:failed                                                   // Ge
 php artisan queue:flush                                                    // Delete all failed jobs
 
 $report->dispatch()->delay(1)                                              // Sending job to the queue with worker delay 1 second
-public $timeout = 1	                                                    // Terminate if 1 sec done
+public $timeout = 1	                                                   // Terminate if 1 sec done
 public $tries = 3                                                          // To consider failed
-========================================================= Scheduller
+========================================================= Scheduler
+php artisan schedule:list
 php artisan schedule:run
 ========================================================= Tests
+php artisan make:test UserTest
+php artisan make:test UserTest --unit
 php artisan test --parallel
 php artisan test --filter ClassNameTest
 ========================================================= Logs
 tail -n 100 storage/logs/laravel.log | grep 'homepage'                     // Last 100 rows with contains word
 ========================================================= Sentry
 php artisan sentry:test
+========================================================= Dumps
+Http::dd()->get('http://example.com');
 
+DB::table('users')->where('votes', '>', 100)->dd();
+ 
+DB::table('users')->where('votes', '>', 100)->dump();
+
+The dumpRawSql and ddRawSql methods may be invoked on a query to dump the query's SQL with all parameter bindings properly substituted:
+
+DB::table('users')->where('votes', '>', 100)->dumpRawSql();
+ 
+DB::table('users')->where('votes', '>', 100)->ddRawSql();

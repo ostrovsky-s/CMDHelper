@@ -14,7 +14,7 @@ tail -f /var/log/mysql/mysql.log
 
 // slow query log
 tail -f var/log/mysql/mysql-slow.log
-============================================================================== APACHE & PHP
+============================================================================== APACHE
 cd /etc/apache2
 sudo vim /etc/apache2/apache2.conf
 sudo vim /etc/apache2/ports.conf		//vhosts
@@ -36,4 +36,3 @@ sudo vim /etc/php/7.4/apache2/php.ini
 cd /var/log/php-fpm/
 ============================================================================== Nginx
 cd /var/log/nginx/
-

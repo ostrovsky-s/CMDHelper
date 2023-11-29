@@ -1,9 +1,0 @@
-https://github.com/alexeymezenin/laravel-best-practices/blob/master/russian.md
-https://www.laravelbestpractices.com/
-https://www.toptal.com/laravel#hiring-guide
-https://www.youtube.com/watch?v=Ow0MrDTJ-Qo
-
-1 .env file MUST NOT be commited into repository
-2 You MUST regularly rotate your APP_KEY 
-  php artisan key:generate 
-3 You MUST use Composer’s autoloading capability to load your own helper functions

@@ -17,6 +17,8 @@ mysql -h localhost -u root [h - host][u - user][p - query pass]
 \с - сancel command
 
 =============================================================================== Create & grant user
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'NOsf3i%nD'		// Fix root login using pwd
+
 SELECT User, Host FROM mysql.user;
 
 CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'user_password';
@@ -41,7 +43,7 @@ SHOW TABLE STATUS FROM dbName; //Show the character set and the collation of you
 
 ALTER DATABASE databasename CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ALTER TABLE tablename CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; 
-﻿=============================================================  CONSOLE MYSQL  mysql -u root -h localhost -p
+=============================================================  CONSOLE MYSQL  mysql -u root -h localhost -p
 [h - host][u - user][p - query pass]
 \с - сancel command
 
@@ -100,11 +102,3 @@ CREATE TABLE user(
  => date_of_birth DATE,
  => created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
  => updated TIMEStAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);
-
-
-
-
-
-
-
-
