@@ -261,7 +261,8 @@ php artisan test --filter ClassNameTest
 tail -n 100 storage/logs/laravel.log | grep 'homepage'                     // Last 100 rows with contains word
 ========================================================= Sentry
 php artisan sentry:test
-========================================================= Dumps
+========================================================= Dumps & Debug
+logs()->critical('$data',[$data]);
 Http::dd()->get('http://example.com');
 
 DB::table('users')->where('votes', '>', 100)->dd();
