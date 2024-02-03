@@ -6,7 +6,7 @@ php artisan help make:controller                                       // Help t
 
 php artisan --version                                                  // Laravel version
 
-php artisan about							 // Info about project config
+php artisan about						 	// Info about project config
 
 php artisan list                                                       // Get all commands
 
@@ -245,6 +245,13 @@ php artisan queue:listen                                                   // En
 php artisan queue:restart                                                  // Restart when new code
 php artisan queue:failed                                                   // Get filed jobs
 php artisan queue:flush                                                    // Delete all failed jobs
+
+
+queue:work will take a snapshot of your jobs at the moment you first run it. 
+Changes in the code will not be considered until you stop and restart queue:work . 
+
+On the other hand, 
+queue:listen will take code changes into account after you first run it.
 
 $report->dispatch()->delay(1)                                              // Sending job to the queue with worker delay 1 second
 public $timeout = 1	                                                   // Terminate if 1 sec done
