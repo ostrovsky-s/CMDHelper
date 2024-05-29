@@ -130,7 +130,7 @@ $request->validate()                                                      // Met
 
 php artisan make:request Analytics/StoreAnalyticsRequest                  // Add request to dir
 ========================================================= Resource
-run artisan make:resource AnalyticResource 
+php artisan make:resource AnalyticResource 
 ========================================================= Exceptions
 php artisan make:exception MyCustomException --render
 ========================================================= AUTH   
@@ -268,6 +268,28 @@ php artisan test --filter ClassNameTest
 tail -n 100 storage/logs/laravel.log | grep 'homepage'                     // Last 100 rows with contains word
 ========================================================= Sentry
 php artisan sentry:test
+========================================================= Sail
+./vendor/bin/sail                                                          // List of sail commands
+
+alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
+
+sail ps                                                       // Display the status of all containers
+sail up
+php artisan sail:add
+========================================================= Horizon
+php artisan horizon                                   	      // Start horizon
+
+
+php artisan horizon:pause 
+php artisan horizon:continue
+php artisan horizon:terminate
+php artisan horizon:clear
+php artisan horizon:clear --queue=emails
+php artisan horizon:forget 9e83bb19-933a-436c-8838-94f193aecdef
+---------------------------------------------- Supervisorctl
+sudo supervisorctl reread
+sudo supervisorctl update
+sudo supervisorctl start horizon
 ========================================================= Dumps & Debug
 logs()->critical('$data',[$data]);
 Http::dd()->get('http://example.com');
