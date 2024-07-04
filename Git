@@ -21,11 +21,11 @@ git config --list                                                               
 git config --list --show-origin                                                   // Show path
 git config user.name                                                              // Get config param by key
 
-git config --global user.email "email@x.net"
-git config --local user.email "email@x.net"
-
 git config --global user.name "Name"
+git config --global user.email "email@x.net"
+
 git config --local user.name "Name"
+git config --local user.email "email@x.net"
 
 ================================================================================= 
 

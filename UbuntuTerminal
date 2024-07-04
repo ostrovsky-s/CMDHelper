@@ -36,6 +36,7 @@ stat -c "%a %n" *                                                  // Digits per
 sudo netstat -tvaep                                                // Active network connections
 sudo netstat -anp | grep apache                                    // Listening apache port and PID from this if it's running
 sudo netstat -tulpn                                                // Active Internet connections (only servers)
+sudo netstat -nr                                                   // Interfaces priority
 
 netstat -tlnup | grep -i 3306	
 =============================================================================== Apache
