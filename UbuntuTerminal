@@ -39,15 +39,15 @@ sudo netstat -tulpn                                                // Active Int
 sudo netstat -nr                                                   // Interfaces priority
 
 netstat -tlnup | grep -i 3306	
-=============================================================================== Apache
-sudo apache2ctl configtest
+=============================================================================== Services
+sudo service name start
+sudo service name stop
+sudo service name restart
+sudo service name status
 
-sudo service apache2 start
-sudo service apache2 stop
-sudo service apache2 restart
-sudo service apache2 status
-
-sudo systemctl disable apache2                                     // Disable autoload
+sudo systemctl disable name                                     // Disable autoload
+systemctl list-units --type=service				// List of services
+journalctl -u name						// Service log
 =============================================================================== MySQL
 sudo service mysql start
 sudo service mysql stop
